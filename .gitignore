@@ -1,0 +1,14 @@
+# output generated files
+*.bin
+*.hex
+# SDCC generated files
+*.ihx
+*.lk
+*.map
+*.mem
+*.lst
+*.rel
+*.rst
+*.sym
+*.asm
+*.adb
