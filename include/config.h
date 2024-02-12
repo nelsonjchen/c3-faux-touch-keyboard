@@ -9,6 +9,9 @@
 #define PIN_ENC_A           P31         // pin connected to knob outA
 #define PIN_ENC_B           P30         // pin connected to knob outB
 
+// LED Simple
+#define PIN_LED             P32         // pin connected to LED
+
 // NeoPixel configuration
 #define NEO_GRB                         // type of pixel: NEO_GRB or NEO_RGB
 
