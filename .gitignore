@@ -12,3 +12,5 @@
 *.sym
 *.asm
 *.adb
+# This file differs on different machines
+.vscode/c_cpp_properties.json
