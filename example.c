@@ -34,7 +34,7 @@
 #include "delay.h"                                // delay functions
 #include "gpio.h"                                 // GPIO functions
 
-#define PIN_LED   P33                             // define LED pin
+#define PIN_LED   P32                             // define LED pin
 
 // ===================================================================================
 // Main Function
