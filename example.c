@@ -29,6 +29,7 @@
 // ===================================================================================
 // Libraries, Definitions and Macros
 // ===================================================================================
+#include "config.h"                         // user configurations
 #include "system.h"                               // system functions
 #include "delay.h"                                // delay functions
 #include "gpio.h"                                 // GPIO functions
@@ -42,6 +43,10 @@
 void main() {
   CLK_config();                                   // configure system clock
   PIN_output(PIN_LED);                            // set LED pin as output
+
+  if(!PIN_read(PIN_KEY1)) {                 // key 1 pressed?
+    BOOT_now();                             // enter bootloader
+  }
 
   while (1) {
     PIN_toggle(PIN_LED);                          // toggle LED
