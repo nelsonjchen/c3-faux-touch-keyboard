@@ -3,7 +3,7 @@
 # Author:   Stefan Wagner
 # Year:     2022
 # URL:      https://github.com/wagiminator
-# ===================================================================================         
+# ===================================================================================
 # Type "make help" in the command line.
 # ===================================================================================
 
@@ -56,7 +56,7 @@ $(TARGET).hex: $(TARGET).ihx
 $(TARGET).bin: $(TARGET).ihx
 	@echo "Building $(TARGET).bin ..."
 	@$(OBJCOPY) -I ihex -O binary $(TARGET).ihx $(TARGET).bin
-	
+
 flash: $(TARGET).bin size removetemp
 	@echo "Uploading to CH55x ..."
 	@$(ISPTOOL)
