@@ -47,10 +47,10 @@ __code USB_CFG_DESCR_HID CfgDescr = {
     .bDescriptorType    = USB_DESCR_TYP_INTERF,   // interface descriptor: 0x04
     .bInterfaceNumber   = 0,                      // number of this interface: 0
     .bAlternateSetting  = 0,                      // value used to select alternative setting
-    .bNumEndpoints      = 1,                      // number of endpoints used: 1
+    .bNumEndpoints      = 2,                      // number of endpoints used: 2
     .bInterfaceClass    = USB_DEV_CLASS_HID,      // interface class: HID (0x03)
     .bInterfaceSubClass = 1,                      // boot interface
-    .bInterfaceProtocol = 2,                      // mouse
+    .bInterfaceProtocol = 1,                      // keyboard
     .iInterface         = 4                       // interface string descriptor
   },
 
@@ -58,8 +58,8 @@ __code USB_CFG_DESCR_HID CfgDescr = {
   .hid0 = {
     .bLength            = sizeof(USB_HID_DESCR),  // size of the descriptor in bytes: 9
     .bDescriptorType    = USB_DESCR_TYP_HID,      // HID descriptor: 0x21
-    .bcdHID             = 0x0111,                 // HID class spec version (BCD: 1.11)
-    .bCountryCode       = 0,                      // not supported
+    .bcdHID             = 0x0110,                 // HID class spec version (BCD: 1.1)
+    .bCountryCode       = 33,                     // country code: US
     .bNumDescriptors    = 1,                      // number of report descriptors: 1
     .bDescriptorTypeX   = USB_DESCR_TYP_REPORT,   // descriptor type: report (0x22)
     .wDescriptorLength  = sizeof(ReportDescr)     // report descriptor length
@@ -73,6 +73,16 @@ __code USB_CFG_DESCR_HID CfgDescr = {
     .bmAttributes       = USB_ENDP_TYPE_INTER,    // transfer type: interrupt (0x03)
     .wMaxPacketSize     = EP1_SIZE,               // max packet size
     .bInterval          = 10                      // polling intervall in ms
+  },
+
+  // Endpoint Descriptor: Endpoint 2 (OUT, Interrupt)
+  .ep2OUT = {
+    .bLength            = sizeof(USB_ENDP_DESCR), // size of the descriptor in bytes: 7
+    .bDescriptorType    = USB_DESCR_TYP_ENDP,     // endpoint descriptor: 0x05
+    .bEndpointAddress   = USB_ENDP_ADDR_EP2_OUT,  // endpoint: 2, direction: OUT (0x02)
+    .bmAttributes       = USB_ENDP_TYPE_INTER,    // transfer type: interrupt (0x03)
+    .wMaxPacketSize     = EP2_SIZE,               // max packet size
+    .bInterval          = 10                      // polling intervall in ms
   }
 };
 
@@ -80,33 +90,40 @@ __code USB_CFG_DESCR_HID CfgDescr = {
 // HID Report Descriptor
 // ===================================================================================
 __code uint8_t ReportDescr[] ={
-  0x05, 0x01,     // USAGE_PAGE (Generic Desktop)
-  0x09, 0x02,     // USAGE (Mouse)
-  0xa1, 0x01,     // COLLECTION (Application)
-  0x09, 0x01,     //   USAGE (Pointer)
-  0xa1, 0x00,     //   COLLECTION (Physical)
-  0x05, 0x09,     //     USAGE_PAGE (Button)
-  0x19, 0x01,     //     USAGE_MINIMUM (Button 1)
-  0x29, 0x03,     //     USAGE_MAXIMUM (Button 3)
-  0x15, 0x00,     //     LOGICAL_MINIMUM (0)
-  0x25, 0x01,     //     LOGICAL_MAXIMUM (1)
-  0x75, 0x01,     //     REPORT_SIZE (1)
-  0x95, 0x03,     //     REPORT_COUNT (3)
-  0x81, 0x02,     //     INPUT (Data,Var,Abs)
-  0x75, 0x05,     //     REPORT_SIZE (5)
-  0x95, 0x01,     //     REPORT_COUNT (1)
-  0x81, 0x03,     //     INPUT (Cnst,Var,Abs)
-  0x05, 0x01,     //     USAGE_PAGE (Generic Desktop)
-  0x09, 0x30,     //     USAGE (X)
-  0x09, 0x31,     //     USAGE (Y)
-  0x09, 0x38,     //     USAGE (Wheel)
-  0x15, 0x81,     //     LOGICAL_MINIMUM (-127)
-  0x25, 0x7f,     //     LOGICAL_MAXIMUM (127)
-  0x75, 0x08,     //     REPORT_SIZE (8)
-  0x95, 0x03,     //     REPORT_COUNT (3)
-  0x81, 0x06,     //     INPUT (Data,Var,Rel)
-  0xc0,           //   END_COLLECTION
-  0xc0            // END_COLLECTION
+    0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)
+    0x09, 0x06,                    // USAGE (Keyboard)
+    0xa1, 0x01,                    // COLLECTION (Application)
+    0x05, 0x07,                    //   USAGE_PAGE (Keyboard)
+    0x19, 0xe0,                    //   USAGE_MINIMUM (Keyboard LeftControl)
+    0x29, 0xe7,                    //   USAGE_MAXIMUM (Keyboard Right GUI)
+    0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
+    0x25, 0x01,                    //   LOGICAL_MAXIMUM (1)
+    0x95, 0x08,                    //   REPORT_COUNT (8)
+    0x75, 0x01,                    //   REPORT_SIZE (1)
+    0x81, 0x02,                    //   INPUT (Data,Var,Abs)
+    0x95, 0x01,                    //   REPORT_COUNT (1)
+    0x75, 0x08,                    //   REPORT_SIZE (8)
+    0x81, 0x03,                    //   INPUT (Cnst,Var,Abs)
+    0x95, 0x06,                    //   REPORT_COUNT (6)
+    0x75, 0x08,                    //   REPORT_SIZE (8)
+    0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
+    0x25, 0xff,                    //   LOGICAL_MAXIMUM (255)
+    0x05, 0x07,                    //   USAGE_PAGE (Keyboard)
+    0x19, 0x00,                    //   USAGE_MINIMUM (Reserved (no event indicated))
+    0x29, 0xe7,                    //   USAGE_MAXIMUM (Keyboard Right GUI)
+    0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
+    0x05, 0x08,                    //   USAGE_PAGE (LEDs)
+    0x19, 0x01,                    //   USAGE_MINIMUM (Num Lock)
+    0x29, 0x05,                    //   USAGE_MAXIMUM (Kana)
+    0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
+    0x25, 0x01,                    //   LOGICAL_MAXIMUM (1)
+    0x95, 0x05,                    //   REPORT_COUNT (5)
+    0x75, 0x01,                    //   REPORT_SIZE (1)
+    0x91, 0x02,                    //   OUTPUT (Data,Var,Abs)
+    0x95, 0x01,                    //   REPORT_COUNT (1)
+    0x75, 0x03,                    //   REPORT_SIZE (3)
+    0x91, 0x03,                    //   OUTPUT (Cnst,Var,Abs)
+    0xc0                           // END_COLLECTION
 };
 
 __code uint8_t ReportDescrLen = sizeof(ReportDescr);

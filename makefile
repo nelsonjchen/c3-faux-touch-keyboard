@@ -1,16 +1,16 @@
 # ===================================================================================
-# Project:  CH55x Example
+# Project:  Mouse Wiggler for CH551, CH552, CH554
 # Author:   Stefan Wagner
-# Year:     2022
+# Year:     2023
 # URL:      https://github.com/wagiminator
 # ===================================================================================
 # Type "make help" in the command line.
 # ===================================================================================
 
 # Files and Folders
-MAINFILE   = example.c
-TARGET     = example
-INCLUDE    = include
+MAINFILE   = touch.c
+TARGET     = touch
+INCLUDE    = src
 TOOLS      = tools
 
 # Microcontroller Settings
