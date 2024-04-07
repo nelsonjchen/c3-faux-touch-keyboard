@@ -69,17 +69,7 @@ void main(void) {
 
   // Loop
   while(1) {
-    if(!PIN_read(PIN_LED)                 // blocking function activated
-       && KBD_CAPS_LOCK_state) {          // and CAPS LOCK was pressed?
-        KBD_type(KBD_KEY_CAPS_LOCK);      // press CAPS LOCK to deactivate
-        DLY_ms(50);                       // wait a bit
-    }
-
-    if(!PIN_read(PIN_ACTKEY)) {           // ACT button pressed?
       PIN_toggle(PIN_LED);                // toggle LED and function state
-      DLY_ms(10);                         // debounce
-      while(!PIN_read(PIN_ACTKEY));       // wait for ACT button released
-      DLY_ms(10);                         // debounce
-    }
+      DLY_ms(20);                         // debounce
   }
 }
