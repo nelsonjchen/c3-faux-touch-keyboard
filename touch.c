@@ -49,6 +49,8 @@
 #include "src/system.h"                   // system functions
 #include "src/gpio.h"                     // GPIO functions
 #include "src/delay.h"                    // delay functions
+#include "usb_hid.h"
+
 
 // Prototypes for used interrupts
 void USB_interrupt(void);
@@ -62,6 +64,7 @@ void USB_ISR(void) __interrupt(INT_NO_USB) {
 void main(void) {
   // Setup
   CLK_config();                           // configure system clock
+  HID_init();
   DLY_ms(10);                             // wait for clock to settle
   PIN_low(PIN_LED);                       // light up LED - blocking activated
 
