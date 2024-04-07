@@ -49,7 +49,6 @@
 #include "src/system.h"                   // system functions
 #include "src/gpio.h"                     // GPIO functions
 #include "src/delay.h"                    // delay functions
-#include "src/usb_keyboard.h"             // USB HID keyboard functions
 
 // Prototypes for used interrupts
 void USB_interrupt(void);
@@ -64,7 +63,6 @@ void main(void) {
   // Setup
   CLK_config();                           // configure system clock
   DLY_ms(10);                             // wait for clock to settle
-  KBD_init();                             // init USB HID keyboard
   PIN_low(PIN_LED);                       // light up LED - blocking activated
 
   // Loop
