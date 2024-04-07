@@ -312,11 +312,27 @@ void USB_EP0_SETUP(void) {
     }
   }
 
-  #ifdef USB_CLASS_SETUP_handler
+  // #ifdef USB_CLASS_SETUP_handler
   else if((USB_SetupTyp & USB_REQ_TYP_MASK) == USB_REQ_TYP_CLASS) {
-    len = USB_CLASS_SETUP_handler();
+      switch(USB_SetupReq) {                          // request ccfType
+        case HID_GET_REPORT:
+          // if(USB_setupBuf->wValueL == 0x03) {
+            // pDescr = &TS_MAX_report;
+            EP0_buffer[0] = 1;
+            len = 1;
+          // }
+          break;
+
+        default:
+          len = 0xff;                       // failed
+          break;
+      }
   }
+  //     len = USB_CLASS_SETUP_handler();
+  // }
   #endif
+
+  // #endif
 
   #ifdef USB_VENDOR_SETUP_handler
   else if((USB_SetupTyp & USB_REQ_TYP_MASK) == USB_REQ_TYP_VENDOR) {
@@ -358,7 +374,7 @@ void USB_EP0_IN(void) {
   switch(USB_SetupReq) {
     case USB_GET_DESCRIPTOR:
       len = USB_SetupLen >= EP0_SIZE ? EP0_SIZE : USB_SetupLen;
-      USB_EP0_copyDescr(len);                     // copy descriptor to EP0                                
+      USB_EP0_copyDescr(len);                     // copy descriptor to EP0
       USB_SetupLen -= len;
       UEP0_T_LEN    = len;
       UEP0_CTRL    ^= bUEP_T_TOG;                 // switch between DATA0 and DATA1
@@ -373,6 +389,8 @@ void USB_EP0_IN(void) {
       UEP0_CTRL  = bUEP_R_TOG | UEP_T_RES_NAK | UEP_R_RES_ACK;
       break;
   }
+
+
 }
 
 // Endpoint 0 OUT handler
