@@ -13,6 +13,6 @@ Plan:
 
 State: Hello World! (I'm touching you!)
 
-This repo is a hello world for the CH552. It's a USB HID device that reports itself as a touchscreen. It's a simple example that sends a touch event to the host in a loop.
+This repo is a hello world for the CH552. It's a USB HID device that reports itself as a touchscreen. It's a simple example that sends a touch event to the host in a loop. It works as a native touchscreen on Linux and Windows.
 
 Tester: https://naqtn.github.io/WBBMTT/
