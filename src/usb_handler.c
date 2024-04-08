@@ -330,8 +330,6 @@ void USB_EP0_SETUP(void) {
   }
   //     len = USB_CLASS_SETUP_handler();
   // }
-  #endif
-
   // #endif
 
   #ifdef USB_VENDOR_SETUP_handler
