@@ -67,7 +67,12 @@ void main(void) {
   HID_init();
   DLY_ms(10);                             // wait for clock to settle
   PIN_low(PIN_LED);                       // light up LED - blocking activated
-  __xdata unsigned char touchDownReport[] = {0x01, 0x01, 0x03, 0x7F, 0x00, 0x0A, 0x00, 0x0A};
+  __xdata unsigned char touchDownReport[] = {
+    0x01, 0x01,
+    0x03, 0x7F,
+    0xb6, 0x02, // x / 10000
+    0x57, 0x04, // y / 10000
+};
   __xdata unsigned char touchUpReport[] = {0x00, 0x01, 0x02, 0x00, 0x00, 0x0A, 0x00, 0x0A};
 
   // Loop
