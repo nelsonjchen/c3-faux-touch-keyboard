@@ -81,9 +81,27 @@ void main(void) {
     0x62, 0x03, // y / 10000
   };
 
+  __xdata unsigned char touchDownReport2[] = {
+    0x01, // Contact Count
+    0x02, // Contact Identifier
+    0x03, // Tip Switch and In Range
+    0x7F, // Pressure
+    0xb6, 0x02, // x / 10000
+    0x62, 0x03, // y / 10000
+  };
+
   __xdata unsigned char touchUpReport[] = {
     0x00, // Contact Count
     0x01, // Contact Identifier
+    0x00, // In Range
+    0x00, // No pressure
+    0x00, 0x00, // Disregarded
+    0x00, 0x0A, // Disregarded
+  };
+
+  __xdata unsigned char touchUpReport2[] = {
+    0x00, // Contact Count
+    0x02, // Contact Identifier
     0x00, // In Range
     0x00, // No pressure
     0x00, 0x00, // Disregarded
@@ -97,10 +115,13 @@ void main(void) {
       // Touch down report
 
       HID_sendReport(touchDownReport, sizeof(touchDownReport));
+      HID_sendReport(touchDownReport2, sizeof(touchDownReport2));
 
       DLY_ms(100);
 
       // Touch up report
       HID_sendReport(touchUpReport, sizeof(touchUpReport));
+            HID_sendReport(touchUpReport2, sizeof(touchUpReport2));
+
   }
 }
