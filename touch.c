@@ -72,7 +72,14 @@ void main(void) {
     0x03, 0x7F,
     0xb6, 0x02, // x / 10000
     0x57, 0x04, // y / 10000
-};
+  };
+  __xdata unsigned char touchDownReport2[] = {
+    0x01, 0x01,
+    0x03, 0x7F,
+    0x6d, 0x05, // x / 10000
+    0xae, 0x08, // y / 10000
+  };
+
   __xdata unsigned char touchUpReport[] = {0x00, 0x01, 0x02, 0x00, 0x00, 0x0A, 0x00, 0x0A};
 
   // Loop
@@ -84,6 +91,10 @@ void main(void) {
       HID_sendReport(touchDownReport, sizeof(touchDownReport));
 
       // Small delay between reports
+      DLY_ms(100);
+
+      HID_sendReport(touchDownReport2, sizeof(touchDownReport2));
+
       DLY_ms(100);
 
       // Touch up report
