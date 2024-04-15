@@ -73,19 +73,22 @@ void main(void) {
   DLY_ms(10);                             // wait for clock to settle
   PIN_low(PIN_LED);                       // light up LED - blocking activated
   __xdata unsigned char touchDownReport[] = {
-    0x01, 0x01,
-    0x03, 0x7F,
+    0x01, // Contact Count
+    0x01, // Contact Identifier
+    0x03, // Tip Switch and In Range
+    0x7F, // Pressure
     0xb6, 0x02, // x / 10000
-    0x57, 0x04, // y / 10000
-  };
-  __xdata unsigned char touchDownReport2[] = {
-    0x01, 0x01,
-    0x03, 0x7F,
-    0x6d, 0x05, // x / 10000
-    0xae, 0x08, // y / 10000
+    0x62, 0x03, // y / 10000
   };
 
-  __xdata unsigned char touchUpReport[] = {0x00, 0x01, 0x02, 0x00, 0x00, 0x0A, 0x00, 0x0A};
+  __xdata unsigned char touchUpReport[] = {
+    0x00, // Contact Count
+    0x01, // Contact Identifier
+    0x00, // In Range
+    0x00, // No pressure
+    0x00, 0x00, // Disregarded
+    0x00, 0x0A, // Disregarded
+  };
 
   // Loop
   while(1) {
@@ -94,11 +97,6 @@ void main(void) {
       // Touch down report
 
       HID_sendReport(touchDownReport, sizeof(touchDownReport));
-
-      // Small delay between reports
-      DLY_ms(100);
-
-      HID_sendReport(touchDownReport2, sizeof(touchDownReport2));
 
       DLY_ms(100);
 
