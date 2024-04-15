@@ -318,7 +318,7 @@ void USB_EP0_SETUP(void) {
         case HID_GET_REPORT:
           // if(USB_setupBuf->wValueL == 0x03) {
             // pDescr = &TS_MAX_report;
-            EP0_buffer[0] = 1;
+            EP0_buffer[0] = 10;
             len = 1;
           // }
           break;
