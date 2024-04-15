@@ -312,25 +312,11 @@ void USB_EP0_SETUP(void) {
     }
   }
 
-  // #ifdef USB_CLASS_SETUP_handler
+  #ifdef USB_CLASS_SETUP_handler
   else if((USB_SetupTyp & USB_REQ_TYP_MASK) == USB_REQ_TYP_CLASS) {
-      switch(USB_SetupReq) {                          // request ccfType
-        case HID_GET_REPORT:
-          // if(USB_setupBuf->wValueL == 0x03) {
-            // pDescr = &TS_MAX_report;
-            EP0_buffer[0] = 10;
-            len = 1;
-          // }
-          break;
-
-        default:
-          len = 0xff;                       // failed
-          break;
-      }
+    len = USB_CLASS_SETUP_handler();
   }
-  //     len = USB_CLASS_SETUP_handler();
-  // }
-  // #endif
+  #endif
 
   #ifdef USB_VENDOR_SETUP_handler
   else if((USB_SetupTyp & USB_REQ_TYP_MASK) == USB_REQ_TYP_VENDOR) {

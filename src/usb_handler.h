@@ -19,6 +19,7 @@ extern __code uint8_t*   USB_pDescr;
 // ===================================================================================
 // Custom External USB Handler Functions
 // ===================================================================================
+uint8_t MT_control(void);
 void HID_EP_init(void);
 void HID_EP1_IN(void);
 
