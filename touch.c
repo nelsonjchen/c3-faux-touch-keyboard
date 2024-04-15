@@ -62,6 +62,11 @@ void USB_ISR(void) __interrupt(INT_NO_USB) {
 // Main Function
 // ===================================================================================
 void main(void) {
+  // Boot Flash if key 1 is held
+  if(!PIN_read(PIN_KEY1)) {                 // key 1 pressed?
+    BOOT_now();                             // enter bootloader
+  }
+
   // Setup
   CLK_config();                           // configure system clock
   HID_init();
