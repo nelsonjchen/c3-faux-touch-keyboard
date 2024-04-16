@@ -202,21 +202,21 @@ void main(void) {
 
     if (keyDirty) {
       if (key1Pressed) {
-        NEO_writeColor(0, 255, 0, 0);
+        NEO_writeColor(0, 25, 19, 0);
         HID_sendReport(touchDownReport1, sizeof(touchDownReport1));
       } else {
         NEO_clearPixel(0);
         HID_sendReport(touchUpReport1, sizeof(touchUpReport1));
       }
       if (key2Pressed) {
-        NEO_writeColor(1, 0, 255, 0);
+        NEO_writeColor(1, 25, 19, 0);
         HID_sendReport(touchDownReport2, sizeof(touchDownReport2));
       } else {
         NEO_clearPixel(1);
         HID_sendReport(touchUpReport2, sizeof(touchUpReport2));
       }
       if (key3Pressed) {
-        NEO_writeColor(2, 0, 0, 255);
+        NEO_writeColor(2, 25, 19, 0);
         HID_sendReport(touchDownReport3, sizeof(touchDownReport3));
       } else {
         NEO_clearPixel(2);
