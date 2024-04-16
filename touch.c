@@ -139,7 +139,7 @@ void main(void) {
 
       PIN_toggle(PIN_LED);                // toggle LED and function state
 
-      DLY_ms(200);                         // debounce
+      DLY_ms(0);                         // debounce
       // Touch down report
 
       // Check if PIN_KEY1 is pressed
