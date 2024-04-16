@@ -5,12 +5,14 @@
 #pragma once
 
 // Pin definitions
-#define PIN_NEO             P14       // pin connected to NeoPixel
+#define PIN_NEO             P34         // pin connected to NeoPixel
 #define PIN_LED             P32       // pin connected to LED
 #define PIN_TOUCH           P16       // pin connected to touch key
 #define PIN_ACTKEY          P17       // pin connected to ACT-button
 #define LED_BUILTIN         P15       // builtin LED
 #define PIN_KEY1            P11         // pin connected to key 1
+#define PIN_KEY2            P17         // pin connected to key 2
+#define PIN_KEY3            P16         // pin connected to key 3
 
 // NeoPixel configuration
 #define NEO_GRB                       // type of pixel: NEO_GRB or NEO_RGB
