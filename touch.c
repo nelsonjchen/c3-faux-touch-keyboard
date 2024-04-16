@@ -77,8 +77,8 @@ void main(void) {
     0x01, // Contact Identifier
     0x03, // Tip Switch and In Range
     0x7F, // Pressure
-    0x88, 0x13, // x / 10000, 5000
-    0x88, 0x13, // y / 10000, 5000
+    0xfa, 0x03, // x / 10000
+    0xf4, 0x01, // y / 10000
   };
 
   __xdata unsigned char touchUpReport1[] = {
@@ -111,8 +111,8 @@ void main(void) {
     0x03, // Contact Identifier
     0x03, // Tip Switch and In Range
     0x7F, // Pressure
-    0x88, 0x13, // x / 10000, 5000
-    0x88, 0x13, // y / 10000, 5000
+    0xf3, 0x20, // x / 10000
+    0x39, 0x24, // y / 10000
   };
 
   __xdata unsigned char touchUpReport3[] = {
