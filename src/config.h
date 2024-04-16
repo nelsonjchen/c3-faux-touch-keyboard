@@ -13,6 +13,7 @@
 #define PIN_KEY1            P11         // pin connected to key 1
 #define PIN_KEY2            P17         // pin connected to key 2
 #define PIN_KEY3            P16         // pin connected to key 3
+#define NEO_COUNT           3           // number of NeoPixels
 
 // NeoPixel configuration
 #define NEO_GRB                       // type of pixel: NEO_GRB or NEO_RGB
