@@ -90,19 +90,42 @@ void main(void) {
     0x00, 0x00, // Disregarded
   };
 
+  __xdata unsigned int touchCount = 0;
+  __xdata int keysChanged = 0;
+  // Track key states. Only send updates if the key state has changed.
+  __xdata int key1Pressed = 0;
+  __xdata int keyDirty = 0;
 
   // Loop
   while(1) {
+      keyDirty = 0;
+      touchCount = 0;
+
       PIN_toggle(PIN_LED);                // toggle LED and function state
+
       DLY_ms(200);                         // debounce
       // Touch down report
 
-      HID_sendReport(touchDownReport1, sizeof(touchDownReport1));
+      // Check if PIN_KEY1 is pressed
+      if(!PIN_read(PIN_KEY1)) {             // key 1 pressed?
+        if(!key1Pressed) {
+          key1Pressed = 1;
+          keyDirty = 1;
+          touchCount += 1;
+        }
+      } else {
+        if(key1Pressed) {
+          key1Pressed = 0;
+          keyDirty = 1;
+        }
+      }
 
-      DLY_ms(100);
-
-      // Touch up report
-      HID_sendReport(touchUpReport1, sizeof(touchUpReport1));
-
+      if(keyDirty) {
+        if(key1Pressed) {
+          HID_sendReport(touchDownReport1, sizeof(touchDownReport1));
+        } else {
+          HID_sendReport(touchUpReport1, sizeof(touchUpReport1));
+        }
+      }
   }
 }
