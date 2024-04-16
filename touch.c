@@ -89,11 +89,47 @@ void main(void) {
     0x00, 0x00, // Disregarded
     0x00, 0x00, // Disregarded
   };
+  __xdata unsigned char touchDownReport2[] = {
+    0x01, // Contact Count
+    0x02, // Contact Identifier
+    0x03, // Tip Switch and In Range
+    0x7F, // Pressure
+    0x88, 0x13, // x / 10000, 5000
+    0x88, 0x13, // y / 10000, 5000
+  };
+
+  __xdata unsigned char touchUpReport2[] = {
+    0x00, // Contact Count
+    0x02, // Contact Identifier
+    0x00, // Not in Range
+    0x00, // No pressure
+    0x00, 0x00, // Disregarded
+    0x00, 0x00, // Disregarded
+  };
+  __xdata unsigned char touchDownReport3[] = {
+    0x01, // Contact Count
+    0x03, // Contact Identifier
+    0x03, // Tip Switch and In Range
+    0x7F, // Pressure
+    0x88, 0x13, // x / 10000, 5000
+    0x88, 0x13, // y / 10000, 5000
+  };
+
+  __xdata unsigned char touchUpReport3[] = {
+    0x00, // Contact Count
+    0x03, // Contact Identifier
+    0x00, // Not in Range
+    0x00, // No pressure
+    0x00, 0x00, // Disregarded
+    0x00, 0x00, // Disregarded
+  };
 
   __xdata unsigned int touchCount = 0;
   __xdata int keysChanged = 0;
   // Track key states. Only send updates if the key state has changed.
   __xdata int key1Pressed = 0;
+  __xdata int key2Pressed = 0;
+  __xdata int key3Pressed = 0;
   __xdata int keyDirty = 0;
 
   // Loop
@@ -119,12 +155,56 @@ void main(void) {
           keyDirty = 1;
         }
       }
+      // Check if PIN_KEY2 is pressed
+      if(!PIN_read(PIN_KEY2)) {             // key 2 pressed?
+        if(!key2Pressed) {
+          key2Pressed = 1;
+          keyDirty = 1;
+          touchCount += 1;
+        }
+      } else {
+        if(key2Pressed) {
+          key2Pressed = 0;
+          keyDirty = 1;
+        }
+      }
+      // Check if PIN_KEY3 is pressed
+      if(!PIN_read(PIN_KEY3)) {             // key 3 pressed?
+        if(!key3Pressed) {
+          key3Pressed = 1;
+          keyDirty = 1;
+          touchCount += 1;
+        }
+      } else {
+        if(key3Pressed) {
+          key3Pressed = 0;
+          keyDirty = 1;
+        }
+      }
+
+      // Change the first byte of each report to the number of fingers
+      touchDownReport1[0] = touchCount;
+      touchUpReport1[0] = touchCount;
+      touchDownReport2[0] = touchCount;
+      touchUpReport2[0] = touchCount;
+      touchDownReport3[0] = touchCount;
+      touchUpReport3[0] = touchCount;
 
       if(keyDirty) {
         if(key1Pressed) {
           HID_sendReport(touchDownReport1, sizeof(touchDownReport1));
         } else {
           HID_sendReport(touchUpReport1, sizeof(touchUpReport1));
+        }
+        if(key2Pressed) {
+          HID_sendReport(touchDownReport2, sizeof(touchDownReport2));
+        } else {
+          HID_sendReport(touchUpReport2, sizeof(touchUpReport2));
+        }
+        if(key3Pressed) {
+          HID_sendReport(touchDownReport3, sizeof(touchDownReport3));
+        } else {
+          HID_sendReport(touchUpReport3, sizeof(touchUpReport3));
         }
       }
   }
