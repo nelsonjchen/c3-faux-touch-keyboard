@@ -198,9 +198,14 @@ void main(void) {
 
     // Check if PIN_ENC_A, PIN_ENC_B is pressed or not and update knobDirection
     if (!PIN_read(PIN_ENC_A)) {
-      // Wait to debounce
-      DLY_ms(100);
-      lampLight = !lampLight;
+      if(PIN_read(PIN_ENC_B)) {
+        lampLight = 1;  // clockwise?
+      }
+      else {
+        lampLight = 0;  // counter-clockwise?
+      }
+      DLY_ms(10);                                    // debounce
+      while(!PIN_read(PIN_ENC_A));                   // wait until next detent
       keyDirty = 1;
     }
 
