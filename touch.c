@@ -222,7 +222,7 @@ void main(void) {
       }
 
       if (key1Pressed) {
-        NEO_writeColor(0, 25, 19, 0);
+        NEO_writeColor(0, 25*3, 19*3, 0);
         HID_sendReport(touchDownReport1, sizeof(touchDownReport1));
       } else {
         if (lampLight) {
@@ -233,7 +233,7 @@ void main(void) {
         HID_sendReport(touchUpReport1, sizeof(touchUpReport1));
       }
       if (key2Pressed) {
-        NEO_writeColor(1, 25, 19, 0);
+        NEO_writeColor(1, 25*3, 19*3, 0);
         HID_sendReport(touchDownReport2, sizeof(touchDownReport2));
       } else {
         if (lampLight) {
@@ -244,7 +244,7 @@ void main(void) {
         HID_sendReport(touchUpReport2, sizeof(touchUpReport2));
       }
       if (key3Pressed) {
-        NEO_writeColor(2, 25, 19, 0);
+        NEO_writeColor(2, 25*3, 19*3, 0);
         HID_sendReport(touchDownReport3, sizeof(touchDownReport3));
       } else {
         if (lampLight) {
