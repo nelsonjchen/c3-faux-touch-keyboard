@@ -214,9 +214,9 @@ void main(void) {
 
     if (keyDirty) {
       if (lampLight) {
-        NEO_writeColor(0, 5, 5, 0);
-        NEO_writeColor(1, 5, 5, 0);
-        NEO_writeColor(2, 5, 5, 0);
+        NEO_writeColor(0, 15, 5, 0);
+        NEO_writeColor(1, 15, 5, 0);
+        NEO_writeColor(2, 15, 5, 0);
       } else {
         NEO_clearAll();
       }
@@ -226,7 +226,7 @@ void main(void) {
         HID_sendReport(touchDownReport1, sizeof(touchDownReport1));
       } else {
         if (lampLight) {
-          NEO_writeColor(0, 5, 5, 0);
+          NEO_writeColor(0, 15, 5, 0);
         } else {
           NEO_clearPixel(0);
         }
@@ -237,7 +237,7 @@ void main(void) {
         HID_sendReport(touchDownReport2, sizeof(touchDownReport2));
       } else {
         if (lampLight) {
-          NEO_writeColor(1, 5, 5, 0);
+          NEO_writeColor(1, 15, 5, 0);
         } else {
           NEO_clearPixel(1);
         }
@@ -248,7 +248,7 @@ void main(void) {
         HID_sendReport(touchDownReport3, sizeof(touchDownReport3));
       } else {
         if (lampLight) {
-          NEO_writeColor(2, 5, 5, 0);
+          NEO_writeColor(2, 15, 5, 0);
         } else {
           NEO_clearPixel(2);
         }
