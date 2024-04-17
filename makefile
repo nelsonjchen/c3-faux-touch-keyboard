@@ -22,6 +22,15 @@ CODE_SIZE  = 0x3800
 # Toolchain
 CC         = sdcc
 OBJCOPY    = objcopy
+# Override OBJCOPY on macOS
+# Install binutils with homebrew on macOS: brew install binutils
+ifeq ($(shell uname -s),Darwin)
+    ifeq ($(shell uname -m),arm64)
+        OBJCOPY = /opt/homebrew/opt/binutils/bin/gobjcopy
+		else
+				OBJCOPY = /usr/local/opt/binutils/bin/gobjcopy
+    endif
+endif
 PACK_HEX   = packihx
 ISPTOOL   ?= python3 $(TOOLS)/chprog.py $(TARGET).bin
 
