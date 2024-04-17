@@ -178,8 +178,9 @@ void main(void) {
         keyDirty = 1;
       }
     }
-    // Check if PIN_KEY3 is pressed
-    if (!PIN_read(PIN_KEY3)) { // key 3 pressed?
+    // Check if PIN_KEY3 or PIN_ENC_SW is pressed
+    if (!PIN_read(PIN_KEY3) || !PIN_read(PIN_ENC_SW)) {
+      // key 3 / encoder switch pressed?
       if (!key3Pressed) {
         key3Pressed = 1;
         keyDirty = 1;

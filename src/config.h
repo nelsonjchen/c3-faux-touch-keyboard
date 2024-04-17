@@ -13,6 +13,9 @@
 #define PIN_KEY1            P11         // pin connected to key 1
 #define PIN_KEY2            P17         // pin connected to key 2
 #define PIN_KEY3            P16         // pin connected to key 3
+#define PIN_ENC_SW          P33         // pin connected to knob switch
+#define PIN_ENC_A           P31         // pin connected to knob outA
+#define PIN_ENC_B           P30         // pin connected to knob outB
 #define NEO_COUNT           3           // number of NeoPixels
 
 // NeoPixel configuration
