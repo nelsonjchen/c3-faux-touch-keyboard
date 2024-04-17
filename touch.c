@@ -133,11 +133,14 @@ void main(void) {
   };
 
   __xdata unsigned int touchCount = 0;
+  __xdata int lampLight = 0;
   __xdata int keysChanged = 0;
   // Track key states. Only send updates if the key state has changed.
   __xdata int key1Pressed = 0;
   __xdata int key2Pressed = 0;
   __xdata int key3Pressed = 0;
+  // 0 for clockwise, 1 for counter-clockwise
+  __xdata int knobDirection = 0;
   __xdata int keyDirty = 0;
 
   NEO_clearAll(); // clear NeoPixels
@@ -193,6 +196,14 @@ void main(void) {
       }
     }
 
+    // Check if PIN_ENC_A, PIN_ENC_B is pressed or not and update knobDirection
+    if (!PIN_read(PIN_ENC_A)) {
+      // Wait to debounce
+      DLY_ms(100);
+      lampLight = !lampLight;
+      keyDirty = 1;
+    }
+
     // Change the first byte of each report to the number of fingers
     touchDownReport1[0] = touchCount;
     touchUpReport1[0] = touchCount;
@@ -202,25 +213,45 @@ void main(void) {
     touchUpReport3[0] = touchCount;
 
     if (keyDirty) {
+      if (lampLight) {
+        NEO_writeColor(0, 5, 5, 0);
+        NEO_writeColor(1, 5, 5, 0);
+        NEO_writeColor(2, 5, 5, 0);
+      } else {
+        NEO_clearAll();
+      }
+
       if (key1Pressed) {
         NEO_writeColor(0, 25, 19, 0);
         HID_sendReport(touchDownReport1, sizeof(touchDownReport1));
       } else {
-        NEO_clearPixel(0);
+        if (lampLight) {
+          NEO_writeColor(0, 5, 5, 0);
+        } else {
+          NEO_clearPixel(0);
+        }
         HID_sendReport(touchUpReport1, sizeof(touchUpReport1));
       }
       if (key2Pressed) {
         NEO_writeColor(1, 25, 19, 0);
         HID_sendReport(touchDownReport2, sizeof(touchDownReport2));
       } else {
-        NEO_clearPixel(1);
+        if (lampLight) {
+          NEO_writeColor(1, 5, 5, 0);
+        } else {
+          NEO_clearPixel(1);
+        }
         HID_sendReport(touchUpReport2, sizeof(touchUpReport2));
       }
       if (key3Pressed) {
         NEO_writeColor(2, 25, 19, 0);
         HID_sendReport(touchDownReport3, sizeof(touchDownReport3));
       } else {
-        NEO_clearPixel(2);
+        if (lampLight) {
+          NEO_writeColor(2, 5, 5, 0);
+        } else {
+          NEO_clearPixel(2);
+        }
         HID_sendReport(touchUpReport3, sizeof(touchUpReport3));
       }
     }
