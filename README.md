@@ -38,7 +38,7 @@ A specific type of mass-produced macro keyboard with a `CH552G` microcontroller.
 
 Go for AliExpress if you want to save money and don't mind waiting. Go for Amazon if you want it faster and have Prime.
 
-As there are many vendors of this keyboard, there is no steady name other than a similar look, so keep an eye for these trait when looking for an equivalent keyboard:
+As there are many vendors of this keyboard, there is no steady name other than a similar look, so keep an eye for these traits when looking for an equivalent keyboard:
 
 * Looks like the keyboard in those links I have above.
 * Shows up when you search for "3 keys 1 knob keyboard"
