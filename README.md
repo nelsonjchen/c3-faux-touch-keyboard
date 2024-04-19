@@ -1,12 +1,12 @@
-# comma three Touchkey keyboard
+# 🦾 comma three Touchkey keyboard
 
 *Long arms for those of us with short arms from birth or those who can't afford arm extension surgery!*
 
 ![touchkey keyboard demo](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/d9617916-2442-4287-b430-709dad173da8)
 
-These are instructions and firmware for a relatively cheap off-the-shelf macro keyboard off Aliexpress/Amazon (that has many copies/clones) to control a comma three running openpilot from an accessible and comfortable driver's position.
+These are instructions and firmware for a relatively cheap off-the-shelf macro keyboard off AliExpress/Amazon (that has many copies/clones) to control a comma three running openpilot from an accessible and comfortable driver's position.
 
-No more this and reaching out when you want to bookmark a segment or toggle experimental mode.:
+No more this and reaching out when you want to bookmark a segment or toggle experimental mode:
 
 https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/d7d32187-ce30-4456-afb6-641c660ce235
 
@@ -18,7 +18,7 @@ The default configuration software and firmware on these kinds of keyboards is n
 
 Instead, we flash the keyboard's microprocessor to pretend to be a USB touchscreen digitizer, and the buttons to send touch events to the comma three. The new firmware touch areas are currently hardcoded to the bottom left corner for bookmark, the center for hide/show menu, and the top right corner for experimental mode toggling. The knob is used to control the LEDs to be a "lamp" light for night driving use and pressing down on it is an alternative button for the top right corner button pressing.
 
-These keyboards are built arount the `CH552G` microcontroller. By connecting two pins, the keyboard can be put into bootloader mode, and the new touchscreen-emulation firmware can then be flashed over USB.
+These keyboards are built arount the `CH552G` microcontroller. By shorting two pins together on initial power, the keyboard can be put into bootloader mode, and the new touchscreen-emulation firmware can then be flashed over USB.
 
 Restoring the original firmware is not possible without a the original firmware which I haven't been able to find yet. That said, somewhat similar functional firmware to the original functionality without the sketchy vendor software can be found here if you want to "reverse" the process and restore the keyboard to something like its original functionality:
 
@@ -27,11 +27,11 @@ https://github.com/biemster/3keys_1knob
 
 ## Bill of Materials
 
-Cost: Expect the cost to be about $3-20 for the keyboard, $2-10 for the male USB-C to female USB-A adapter, and an optional $6-10 for nicities like 90 degree USB-C angle adapters for a cleaner look. The rest of the materials you probably have lying around. The cost can be $14 to $40 depending on how long you want to wait for the materials to arrive from AliExpress.
+Cost: Expect the cost to be about $3-20 for the keyboard, $2-10 for the male USB-C to female USB-A adapter, and an optional $6-10 for nicities like 90 degree USB-C angle adapters for a cleaner look. The rest of the materials you probably have lying around. The cost can be $14 to $40 depending on how long you want to wait for the materials to arrive from AliExpress, if you're in a hurry and want to buy from Amazon, and how clean you want the install to look.
 
 ### Keyboard
 
-A macro keyboard with a `CH552G` microcontroller. The one this project supports and what I used was this:
+A specific type of mass-produced macro keyboard with a `CH552G` microcontroller. The one this project supports and what I used was this:
 
 * https://www.aliexpress.us/item/3256806441586710.html
 
@@ -45,8 +45,8 @@ As there are many vendors of this keyboard, there is no steady name other than a
 * Shows up when you search for "3 keys 1 knob keyboard"
 * 3 keys in a row
 * 1 knob, metal-looking usually
-* Acryllic exterior with rounded corners
-* Exposed screws heads
+* Acryllic layer exterior with rounded corners
+* Exposed screws heads on bottom and top
 * Multi-color LEDs
 * USB-C is offset a bit torwards the knob side of the keyboard and not in the center.
 * Comes with a male USB-A to male USB-C cable
@@ -71,11 +71,15 @@ These are optional, but they help reduce cable strain on the cable at the comma 
 
 ### Mounting Tape
 
-You can attach the keyboard to your car however you like. I used large 3M Command Picture Hanging Strips to attach the keyboard to the car. They are strong enough to hold the keyboard in place and can be removed without damaging the car. They are also velcro-like so you can remove the keyboard to change it or reprogram it away from the car without disturbing the tape too.
+You can attach the keyboard to your car however you like. I used large 3M Command Picture Hanging Strips to attach the keyboard in front of my gear shifter. They are strong enough to hold the keyboard in place and can be fully removed without damaging the car. The strips are also velcro-like so you can remove the keyboard to change it or reprogram it away from the car without disturbing the tape too.
 
 https://amzn.to/49Nm87A
 
 Of course, you can use whatever else you like for mounting.
+
+AliExpress has command strip-like products as well, but I haven't tried them yet:
+
+https://www.aliexpress.us/w/wholesale-3m-command-picture-hanging-strips.html
 
 ### Shorting Tools
 
