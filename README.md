@@ -8,13 +8,13 @@ These are instructions and firmware for a relatively cheap off-the-shelf macro k
 
 No more this and reaching out when you want to bookmark a segment or toggle experimental mode:
 
-https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/d7d32187-ce30-4456-afb6-641c660ce235
+![touch](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/d6085e3b-109d-4347-a9d0-cbc847b3c234)
 
 The macro keyboard we will be using look like this and come in this configuration:
 
 ![Picture of keyboard](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/bf44187f-1143-46d3-bb61-b068b7270087)
 
-The default configuration software and firmware on these kinds of keyboards is notoriously bad, sketchy in origin, and may not be trustworthy. More importantly, it won't work for our use case where we need to send touchscreen input. So, don't bother downloading and don't install the configuration software. We will be throwing it all out.
+The default configuration software and firmware on these kinds of keyboards is notoriously bad, sketchy in origin, and may not be trustworthy. Most importantly, it won't work for our use case where we need to send touchscreen input. So, don't bother downloading and don't install the configuration software. We will be throwing it all out.
 
 Instead, we flash the keyboard's microprocessor to pretend to be a USB touchscreen digitizer, and the buttons to send touch events to the comma three. The new firmware touch areas are currently hardcoded to the bottom left corner for bookmark, the center for hide/show menu, and the top right corner for experimental mode toggling. The knob is used to control the LEDs to be a "lamp" light for night driving use and pressing down on it is an alternative button for the top right corner button pressing.
 
@@ -54,6 +54,7 @@ As there are many vendors of this keyboard, there is no steady name other than a
 * Multi-color LEDs
 * USB-C is offset a bit torwards the knob side of the keyboard and not in the center.
 * Comes with a male USB-A to male USB-C cable
+* No wireless.
 
 These will usually guarantee you get a keyboard with the `CH552G` microcontroller present in the manner we need.
 
@@ -132,20 +133,19 @@ You will need to use Zadig to make the device when it is in bootloader mode avai
 
 ## Flashing the firmware
 
-WIP
-
 1. Download the firmware to be flashed from the releases page.
-2. Visit https://www.stephenkingston.net/CH55x-WebProgrammer/
-3. Press Connect
-4. Select the `CH552` device from the dropdown.
-5. Drop the hex file into the web page.
-6. Flash!
+2. Connect your keyboard to your computer with the USB-C to USB-A cable while shorting the pins.
+3. Visit https://www.stephenkingston.net/CH55x-WebProgrammer/
+4. Press Connect
+5. Select the `CH552` device from the dropdown.
+6. Drop the `.hex` file into the web page.
+7. Flash!
 
 ## Keyboard Reassembly
 
 Put it back together, screw it down, and you're done!
 
-## Testing
+## Testing your work
 
 Connect the keyboard to the comma three and test the buttons and knob. Start the car, with the engine not running. The bottom left corner should bookmark, the center should hide/show the side menu, and the top right corner should toggle experimental mode (if available). The knob should control the LEDs and pressing down on the knob should act as an alternative button for the top right corner.
 
@@ -155,7 +155,7 @@ Pretend it's like a dashcam install, which you should have done with the comma t
 
 I ran my cable down the passenger side A pillar under the trim.
 
-### Photos
+### My Install Photos
 
 ![c3](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/4b39ad35-261c-450b-8351-33ba2037e278)
 
@@ -166,7 +166,7 @@ I ran my cable down the passenger side A pillar under the trim.
 
 ## Updating the firmware with the new firmware
 
-If you ever need to update the firmware with the new firmware, the old firmware can be put into bootloader mode by holding the key furthest away from the knob while plugging it into the computer. All the LEDs should light up in full white when this is done. The new firmware can then be flashed without shorting the pins.
+If you ever need to update the firmware with the new firmware, the old firmware can be put into bootloader mode by holding the key furthest away from the knob while plugging it into the computer. All the LEDs should light up in full white when this is done. The new firmware can then be flashed without shorting the pins using the web flasher.
 
 ## Inspirations and References
 
