@@ -135,13 +135,12 @@ You will need to use Zadig to make the device when it is in bootloader mode avai
 
 ### Flashing the firmware
 
-1. Download the firmware to be flashed from the releases page.
-2. Connect your keyboard to your computer with the USB-C to USB-A cable while shorting the pins.
+1. Download the `touch.hex` firmware to be flashed from the [GitHub Releases page](https://github.com/nelsonjchen/c3-touchkey-keyboard/releases).
+2. Connect the macro keyboard to your computer with the USB-C to USB-A cable while shorting the pins to have it in bootloader mode.
 3. Visit https://www.stephenkingston.net/CH55x-WebProgrammer/
 4. Press Connect
-5. Select the `CH552` device from the dropdown.
-6. Drop the `.hex` file into the web page.
-7. Flash!
+5. Select the device with "`WinChipHead`" in the name from the dropdown.
+6. Drop the `.hex` file into the web page and it'll flash.
 
 ### Keyboard Reassembly
 
