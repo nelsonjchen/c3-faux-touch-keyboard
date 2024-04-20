@@ -1,4 +1,4 @@
-name: Build
+name: Build and/or Release
 
 on: push
 
@@ -27,5 +27,13 @@ jobs:
         with:
           name: touchkey-firmware
           path: |
+            touch.bin
+            touch.hex
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
             touch.bin
             touch.hex
