@@ -26,13 +26,18 @@ https://github.com/biemster/3keys_1knob
 
 ## Bill of Materials
 
-Cost: Expect the cost to be about $3-20 for the keyboard, $2-10 for the male USB-C to female USB-A adapter, and an optional $6-10 for nicities like 90 degree USB-C angle adapters for a cleaner look. The rest of the materials you probably have lying around. The cost can be $14 to $40 depending on how long you want to wait for the materials to arrive from AliExpress, if you're in a hurry and want to buy from Amazon, or how clean you want the install to look.
+Cost: Expect the cost to be about $3-20 for the keyboard, $2-10 for the male USB-C to female USB-A adapter, and an optional $6-10 for nicities like 90 degree USB-C angle adapters for a cleaner look. You may also need a USB-C extension cable. The rest of the materials you probably have lying around. The cost can be $14 to $40 depending on how long you want to wait for the materials to arrive from AliExpress, if you're in a hurry and want to buy from Amazon, or how clean you want the install to look.
 
 ### Keyboard
 
 A specific type of mass-produced macro keyboard with a `CH552G` microcontroller. The one this project supports and what I used was this:
 
 * https://www.aliexpress.us/item/3256806441586710.html
+
+  * Note that sometimes these keyboards are on sale for $5 from vendors.
+  * https://www.aliexpress.us/item/3256806441586710.html
+  * <img width="619" alt="image" src="https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/266f13cb-fbde-4881-9231-7d1539b2891a">
+
 
 * https://amzn.to/3Q7Mw5c
 
@@ -67,6 +72,12 @@ These are optional, but they help reduce cable strain on the cable at the comma 
 * https://amzn.to/3U3WtSu - This is a pack of 5 adapters with 3 of them being useful to get the angles right to reduce strain and clean up the cables.
 * https://www.aliexpress.us/item/3256805061903701.html
   * Purchase "Color": 1, 4, 5
+
+### Male USB-C to Female USB-C Extension Cable
+
+This is optional. Without it, the setup barely fits in my Corolla. If you got the 5 pack of adapters from Amazon above, there's a female to female adapter you can use to extend the cable with a male USB-C to male USB-C cable alternatively if you'll like.
+
+Search on Amazon or AliExpress for "USB-C extension cable".
 
 ### Mounting Tape
 
@@ -104,8 +115,10 @@ You will need to use Zadig to make the device when it is in bootloader mode avai
 
 1. Download Zadig from https://zadig.akeo.ie/
 2. Run Zadig
-
-WIP
+3. Under devices, select `Create New Device`.
+   1. ![zadig_create_new_device](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/5fad813d-7202-4c03-9d69-1e5a01985c0e)
+4. Fill in three fields. The first field is just a description and you can fill in anything. The next two fields are very important. Fill them in with 4348 and 55e0 respectively. Press "Install Driver" and give it a few minutes to install.
+   1. ![fill it in this way](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/c0280b31-646e-43bc-a01b-6269a9c0be70)
 
 ### Getting the keyboard into bootloader mode
 
@@ -113,8 +126,9 @@ WIP
 2. Unscrew them and take off the bottom. There will be an acrylic cut out. You will see the `CH552G` microcontroller.
 3. Take out the acrylic cut out so you have a bit more space
 4. Short these two pins on the `CH552G` microcontroller. Technical info: These pull USB D+ up to 3.3V from the chip's 3.3V supply.
-   * WIP
-5. While the two pins are shorted together, plug the keyboard into your computer.
+   * <img width="451" alt="diagram" src="https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/46db92c4-290d-46ff-aabe-c8591dcd7503">
+   * ![real world](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/80d1c5b8-61d9-4d01-8cbe-9e7f5c4405f6)
+5. While these two pins are shorted together, plug the keyboard into your computer.
 
 ## Flashing the firmware
 
@@ -140,6 +154,15 @@ Connect the keyboard to the comma three and test the buttons and knob. Start the
 Pretend it's like a dashcam install, which you should have done with the comma three. Use the mounting tape to attach the keyboard to a convenient location. I put mine in front of the gear shifter. Connect the cables. Use the right angle adapters to clean up the cable routing, reduce strain on the comma three's USB-C port and minimize any weird blocking of the cameras or interior.
 
 I ran my cable down the passenger side A pillar under the trim.
+
+### Photos
+
+![c3](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/4b39ad35-261c-450b-8351-33ba2037e278)
+
+![down the a pillar](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/cc9bc08f-d1fb-4949-8ea1-9398a7b691b3)
+
+![console](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/f66b56cb-b862-4018-b9cc-11246ea958d5)
+
 
 ## Updating the firmware with the new firmware
 
