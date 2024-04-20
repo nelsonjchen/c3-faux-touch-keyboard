@@ -133,7 +133,7 @@ You will need to use Zadig to make the device when it is in bootloader mode avai
    * ![real world](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/80d1c5b8-61d9-4d01-8cbe-9e7f5c4405f6)
 5. While these two pins are shorted together, plug the keyboard into your computer.
 
-## Flashing the firmware
+### Flashing the firmware
 
 1. Download the firmware to be flashed from the releases page.
 2. Connect your keyboard to your computer with the USB-C to USB-A cable while shorting the pins.
@@ -143,21 +143,21 @@ You will need to use Zadig to make the device when it is in bootloader mode avai
 6. Drop the `.hex` file into the web page.
 7. Flash!
 
-## Keyboard Reassembly
+### Keyboard Reassembly
 
 Put it back together, screw it down, and you're done!
 
-## Testing your work
+### Testing your work
 
 Connect the keyboard to the comma three and test the buttons and knob. Start the car, with the engine not running. The bottom left corner should bookmark, the center should hide/show the side menu, and the top right corner should toggle experimental mode (if available). The knob should control the LEDs and pressing down on the knob should act as an alternative button for the top right corner.
 
-## Install into car
+### Install into car
 
 Pretend it's like a dashcam install, which you should have done with the comma three. Use the mounting tape to attach the keyboard to a convenient location. I put mine in front of the gear shifter. Connect the cables. Use the right angle adapters to clean up the cable routing, reduce strain on the comma three's USB-C port and minimize any weird blocking of the cameras or interior.
 
 I ran my cable down the passenger side A pillar under the trim.
 
-### My Install Photos
+#### My Install Photos
 
 ![c3](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/4b39ad35-261c-450b-8351-33ba2037e278)
 
@@ -169,6 +169,10 @@ I ran my cable down the passenger side A pillar under the trim.
 ## Updating the firmware with the new firmware
 
 If you ever need to update the firmware with the new firmware, the old firmware can be put into bootloader mode by holding the key furthest away from the knob while plugging it into the computer. All the LEDs should light up in full white when this is done. The new firmware can then be flashed without shorting the pins using the web flasher.
+
+## Development
+
+See the Makefile and try to get `make flash` going. You'll need sdcc, Python with pyusb, and build tools
 
 ## Inspirations and References
 
