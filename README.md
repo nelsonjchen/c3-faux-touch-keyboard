@@ -30,6 +30,8 @@ Cost: Expect the cost to be about $3-20 for the keyboard, $2-10 for the male USB
 
 ### Keyboard
 
+![3Keys-Mechanical-Keyboard-For-Photoshop-USB-Macro-Custom-Keyboard-RGB-Gaming-Custom-Programming-Knob-Mini-Keyboard jpg_](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/9c643f4a-c5e8-464b-b5f0-c03f875083f7)
+
 A specific type of mass-produced macro keyboard with a `CH552G` microcontroller. The one this project supports and what I used was this:
 
 * https://www.aliexpress.us/item/3256806441586710.html
@@ -37,7 +39,6 @@ A specific type of mass-produced macro keyboard with a `CH552G` microcontroller.
   * Note that sometimes these keyboards are on sale for $5 from vendors.
   * https://www.aliexpress.us/item/3256806441586710.html
   * <img width="619" alt="image" src="https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/266f13cb-fbde-4881-9231-7d1539b2891a">
-
 
 * https://amzn.to/3Q7Mw5c
 
