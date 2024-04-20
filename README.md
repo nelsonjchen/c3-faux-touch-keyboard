@@ -171,7 +171,7 @@ If you ever need to update the firmware with the new firmware, the old firmware 
 
 ## Development
 
-See the Makefile and try to get `make flash` going. You'll need sdcc, Python with pyusb, and build tools
+See the Makefile and try to get `make flash` going. You'll need sdcc, Python with pyusb, and build tools. 
 
 ## Inspirations and References
 
