@@ -20,7 +20,7 @@ Instead, we flash the keyboard's microprocessor to pretend to be a USB touchscre
 
 **A limitation of the blind touch approach is that I don't think this might work for the comma prime navigation UI. I don't have comma prime to develop against and that issue is being tracked in this issue: https://github.com/nelsonjchen/c3-touchkey-keyboard/issues/2 .**
 
-These keyboards are built arount the `CH552G` microcontroller. By shorting two pins together on initial power, the keyboard can be put into bootloader mode, and the new touchscreen-emulation firmware can then be flashed over USB.
+These keyboards are built around the [`CH552G`][ch552info] microcontroller. By shorting two pins together on initial power, the keyboard can be put into bootloader mode, and the new touchscreen-emulation firmware can then be flashed over USB.
 
 Restoring the original vendor firmware is not possible without  the original vendor firmware which I haven't been able to find yet. That said, somewhat similar functional firmware to the original functionality without the sketchy vendor software can be found here if you want to "reverse" the process and restore the keyboard to something like its original functionality:
 
@@ -34,7 +34,7 @@ Cost: Expect the cost to be about $3-20 for the keyboard, $2-10 for the male USB
 
 ![3Keys-Mechanical-Keyboard-For-Photoshop-USB-Macro-Custom-Keyboard-RGB-Gaming-Custom-Programming-Knob-Mini-Keyboard jpg_](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/9c643f4a-c5e8-464b-b5f0-c03f875083f7)
 
-A specific type of mass-produced macro keyboard with a `CH552G` microcontroller. The one this project supports and what I used was this:
+A specific type of mass-produced macro keyboard with a [`CH552G`][ch552info] microcontroller. The one this project supports and what I used was this:
 
 * https://www.aliexpress.us/item/3256806441586710.html
 
@@ -185,3 +185,5 @@ This firmware is based on the work of the following projects:
 ## License
 
 CC-BY-SA 3.0 as it is mostly based on https://github.com/wagiminator/MCU-Templates/blob/main/CH552/LICENSE . See LICENSE.md for more details.
+
+[ch552info]: https://hackaday.com/2019/02/17/how-to-program-a-really-cheap-microcontroller/
