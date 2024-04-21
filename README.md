@@ -124,6 +124,33 @@ You will need to use Zadig to make the device when it is in bootloader mode avai
    1. ![zadig_create_new_device](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/5fad813d-7202-4c03-9d69-1e5a01985c0e)
 4. Fill in three fields. The first field is just a description and you can fill in anything. The next two fields are very important. Fill them in with 4348 and 55e0 respectively. Press "Install Driver" and give it a few minutes to install.
    1. ![fill it in this way](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/c0280b31-646e-43bc-a01b-6269a9c0be70)
+  
+### (Ubuntu Linux) Preparing Ubuntu Linux to allow the device to flash via a Chromium-based browser
+
+You will need to create a udev rule to allow your user account to access the device when it is in bootloader mode.
+
+1. Open a terminal and enter the following commands to create the udev rule:
+
+```bash
+sudo tee /etc/udev/rules.d/50-ch552-flash.rules <<EOF
+# CH552G Bootloader
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="4348", ATTRS{idProduct}=="55e0", GROUP="plugdev", MODE="0666"
+EOF
+```
+
+2. Reload the udev rules:
+
+```bash
+sudo udevadm control --reload-rules
+```
+
+3. Ensure your user account is part of the `plugdev` group:
+
+```bash
+sudo usermod -a -G plugdev $USER
+```
+
+4. Log out and log back in for the group change to take effect.
 
 ### Getting the keyboard into bootloader mode
 
@@ -135,14 +162,14 @@ You will need to use Zadig to make the device when it is in bootloader mode avai
    * ![real world](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/80d1c5b8-61d9-4d01-8cbe-9e7f5c4405f6)
 5. While these two pins are shorted together, plug the keyboard into your computer.
 6. Remove the shorting tool after the keyboard is plugged in.
-7. Check if the keyboard shows up in Device Manager as a `WinChipHead` or `CH552` or whatever device you've named it as in Zadig.
+7. Check if the keyboard shows up in Device Manager as a `WinChipHead` or `CH552` or whatever device you've named it as in Zadig. On Linux, use `lsusb` to check for a `WinChipHead` device. On macOS, open the `System Information` app and check the USB section.
 
 ### Flashing the firmware
 
 After the keyboard is in bootloader mode, you can flash the firmware.
 
 1. Download the `touch.hex` firmware to be flashed from the [GitHub Releases page](https://github.com/nelsonjchen/c3-touchkey-keyboard/releases).
-2. Visit https://www.stephenkingston.net/CH55x-WebProgrammer/
+2. Visit https://www.stephenkingston.net/CH55x-WebProgrammer/ on a Chromium based browser
 3. Press Connect
 4. Select the device with "`WinChipHead`" in the name from the dropdown.
 5. Drop the `.hex` file into the web page and it'll flash.
