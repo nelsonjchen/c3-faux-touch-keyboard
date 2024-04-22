@@ -99,6 +99,7 @@ https://www.aliexpress.us/w/wholesale-3m-command-picture-hanging-strips.html
 ### Shorting Tools
 
 You'll need to short two pins on the `CH552G` microcontroller to put it into bootloader mode. You can do this with a paperclip or a metal conductor, but it is easier to do with test hooks.
+After you flash it with this project's firmware, you won't need these tools anymore as you can boot the keyboard into bootloader mode by holding the key furthest from the knob down on powerup so these tools are a first-time only thing. 
 
 #### Cheap
 
