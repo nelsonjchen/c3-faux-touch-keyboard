@@ -99,7 +99,7 @@ https://www.aliexpress.us/w/wholesale-3m-command-picture-hanging-strips.html
 ### Shorting Tools
 
 You'll need to short two pins on the `CH552G` microcontroller to put it into bootloader mode. You can do this with a paperclip or a metal conductor, but it is easier to do with test hooks.
-After you flash it with this project's firmware, you won't need these tools anymore as you can boot the keyboard into bootloader mode by holding the key furthest from the knob down on powerup so these tools are a first-time only thing. 
+After you flash it with this project's firmware, you won't need these tools anymore as you can boot the keyboard into bootloader mode by holding the key furthest from the knob down on powerup so these tools are a first-time only thing.
 
 #### Cheap
 
@@ -125,7 +125,7 @@ You will need to use Zadig to make the device when it is in bootloader mode avai
    1. ![zadig_create_new_device](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/5fad813d-7202-4c03-9d69-1e5a01985c0e)
 4. Fill in three fields. The first field is just a description and you can fill in anything. The next two fields are very important. Fill them in with 4348 and 55e0 respectively. Press "Install Driver" and give it a few minutes to install.
    1. ![fill it in this way](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/c0280b31-646e-43bc-a01b-6269a9c0be70)
-  
+
 ### (Ubuntu Linux) Preparing Ubuntu Linux to allow the device to flash via a Chromium-based browser
 
 You will need to create a udev rule to allow your user account to access the device when it is in bootloader mode.
@@ -197,6 +197,23 @@ I ran my cable down the passenger side A pillar under the trim.
 
 ![console](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/f66b56cb-b862-4018-b9cc-11246ea958d5)
 
+### Installation Diagram
+
+This is my installation, but should adjust it to your needs.
+
+```mermaid
+graph TD
+    A[comma three] --> B
+    B[Straight USB-C Male to Female USB-A] --> C
+    C[Angle and Twisted USB-C Male to USB-C Female Adapter] --> D
+    D[Male USB-C to Female USB-A Cable] --> E
+    E["(Came with Keyboard) Male-USB-A to USB-C Cable"] --> F
+    F[Angled Female USB-C to Male USB-C adapter] --> G
+    E --> H
+    H["(Optional) Male USB-C to Female USB-C Extension Cable"] --> F
+    G[Keyboard]
+
+```
 
 ## Updating the firmware with the new firmware
 
