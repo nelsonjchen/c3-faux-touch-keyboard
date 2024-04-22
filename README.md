@@ -203,7 +203,7 @@ This is my installation, but should adjust it to your needs.
 
 ```mermaid
 graph TD
-    A[comma three] --> B
+    A[comma three's port 2] --> B
     B[Straight USB-C Male to Female USB-A] --> C
     C[Angle and Twisted USB-C Male to USB-C Female Adapter] --> D
     D[Male USB-C to Female USB-A Cable] --> E
