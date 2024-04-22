@@ -207,10 +207,12 @@ graph TD
     B[Straight USB-C Male to Female USB-A] --> C
     C[Angle and Twisted USB-C Male to USB-C Female Adapter] --> D
     D[Male USB-C to Female USB-A Cable] --> E
-    E["(Came with Keyboard) Male-USB-A to USB-C Cable"] --> F
+    E["(Came with Keyboard) Male-USB-A to Male USB-C Cable"] --> F
     F[Angled Female USB-C to Male USB-C adapter] --> G
     E --> H
     H["(Optional) Male USB-C to Female USB-C Extension Cable"] --> F
+    C --> I
+    I["(Optional) Male USB-C to Female USB-C Extension Cable"] --> D
     G[Keyboard]
 
 ```
