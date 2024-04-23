@@ -58,6 +58,7 @@ As there are many vendors of this keyboard, there is no steady name other than a
 * USB-C is offset a bit torwards the knob side of the keyboard and not in the center.
 * Comes with a male USB-A to male USB-C cable
 * No wireless.
+* A link to a sketchy file hosting site for configuration software, "email us for software" call to action, or even **no** instruction
 * Has a black or white variant. Color doesn't matter, choose your preference.
 
 These will usually guarantee you get a keyboard with the `CH552G` microcontroller present in the manner we need.
