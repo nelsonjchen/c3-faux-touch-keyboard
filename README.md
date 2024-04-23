@@ -175,13 +175,13 @@ After the keyboard is in bootloader mode, you can flash the firmware.
 4. Select the device with "`WinChipHead`" in the name from the dropdown.
 5. Drop the `.hex` file into the web page and it'll flash.
 
-### Keyboard Reassembly
-
-Put it back together, screw it down, and you're done!
-
 ### Testing your work
 
 Connect the keyboard to the comma three and test the buttons and knob. Start the car, with the engine not running. The bottom left corner should bookmark, the center should hide/show the side menu, and the top right corner should toggle experimental mode (if available). The knob should control the LEDs and pressing down on the knob should act as an alternative button for the top right corner.
+
+### Keyboard Reassembly
+
+Put it back together, screw it down, and you're done!
 
 ### Install into car
 
