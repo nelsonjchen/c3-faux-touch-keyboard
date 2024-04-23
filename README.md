@@ -1,4 +1,4 @@
-# 🦾 comma three Touchkey keyboard
+# 🦾 comma three Faux-Touch keyboard
 
 *Long arms for those of us with short arms from birth or those who can't afford arm extension surgery!*
 
