@@ -161,7 +161,7 @@ sudo usermod -a -G plugdev $USER
 4. Short these two pins on the `CH552G` microcontroller. Technical info: These pull USB D+ up to 3.3V from the chip's 3.3V supply.
    * <img width="451" alt="diagram" src="https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/acf0296f-f89b-44d5-97a0-b87a16d54020">
    * ![real world](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/80d1c5b8-61d9-4d01-8cbe-9e7f5c4405f6)
-5. While these two pins are shorted together, plug the keyboard into your computer.
+5. While these two pins are shorted together, plug the keyboard into your computer. Keep in mind that the keyboard can only be powered or connected from a USB-A port as well. Like the C3, you also cannot directly connect it to your computer with USB-C.
 6. Remove the shorting tool after the keyboard is plugged in.
 7. Check if the keyboard shows up in Device Manager as a `WinChipHead` or `CH552` or whatever device you've named it as in Zadig. On Linux, use `lsusb` to check for a `WinChipHead` device. On macOS, open the `System Information` app and check the USB section.
 
