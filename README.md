@@ -26,6 +26,10 @@ Restoring the original vendor firmware is not possible without  the original ven
 
 https://github.com/biemster/3keys_1knob
 
+A more hardcore keyboard framework for this chip exists here as well:
+
+https://github.com/semickolon/fak
+
 ## Bill of Materials
 
 Cost: Expect the cost to be about $3-20 for the keyboard, $2-10 for the male USB-C to female USB-A adapter, and an optional $6-10 for nicities like 90 degree USB-C angle adapters for a cleaner look. You may also need a USB-C extension cable. The rest of the materials you probably have lying around. The cost can be $14 to $40 depending on how long you want to wait for the materials to arrive from AliExpress, if you're in a hurry and want to buy from Amazon, or how clean you want the install to look.
