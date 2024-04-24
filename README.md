@@ -214,7 +214,7 @@ On a Chevy Bolt. Custom Keycaps and "Holy Panda" switches.
 
 ### Installation Diagram
 
-This is my installation, but should adjust it to your needs.
+This is my installation, but you should adjust it to your needs.
 
 ```mermaid
 graph TD
