@@ -60,8 +60,13 @@ As there are many vendors of this keyboard, there is no steady name other than a
 * No wireless.
 * A link to a sketchy file hosting site for configuration software, "email us for software" call to action, or even **no** instruction
 * Has a black or white variant. Color doesn't matter, choose your preference.
+* Tends to come with red switches
 
 These will usually guarantee you get a keyboard with the `CH552G` microcontroller present in the manner we need.
+
+#### Optional Customizations
+
+It is a mechanical keyboard! You can replace the stock red switches with whatever you like along with the keycaps. Tactile switch replacement is popular. Keycaps/Switches are also sold on Amazon, AliExpress, and wherever you want to buy them. You might spend more on switches and keycaps than the keyboard.
 
 ### Male USB-C to Female USB-A cable
 
@@ -191,13 +196,21 @@ Pretend it's like a dashcam install, which you should have done with the comma t
 
 I ran my cable down the passenger side A pillar under the trim.
 
-#### My Install Photos
+#### Install Photos
+
+##### Mine
 
 ![c3](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/4b39ad35-261c-450b-8351-33ba2037e278)
 
 ![down the a pillar](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/cc9bc08f-d1fb-4949-8ea1-9398a7b691b3)
 
 ![console](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/f66b56cb-b862-4018-b9cc-11246ea958d5)
+
+##### Others
+
+On a Chevy Bolt. Custom Keycaps and "Holy Panda" switches.
+
+![20240423_184842](https://github.com/nelsonjchen/c3-faux-touch-keyboard/assets/5363/c4c0ce08-bf9b-47dd-9500-e3a512cf3f74)
 
 ### Installation Diagram
 
