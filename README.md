@@ -210,6 +210,10 @@ I ran my cable down the passenger side A pillar under the trim.
 
 ![console](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/f66b56cb-b862-4018-b9cc-11246ea958d5)
 
+With switch replacements
+
+https://github.com/nelsonjchen/c3-faux-touch-keyboard/assets/5363/e2c270e9-285f-4de6-962e-13900b545120
+
 ##### Others
 
 On a Chevy Bolt. Custom Keycaps and "Holy Panda" switches.
