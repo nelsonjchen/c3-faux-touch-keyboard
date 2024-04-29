@@ -16,7 +16,7 @@ The macro keyboard we will be using look like this and come in this configuratio
 
 The default configuration software and firmware on these kinds of keyboards is notoriously bad, sketchy in origin, and may not be trustworthy. Most importantly, it won't work for our use case where we need to send touchscreen input. So, don't bother downloading and don't install the configuration software. We will be throwing it all out.
 
-Instead, we flash the keyboard's microprocessor to pretend to be a USB touchscreen digitizer, and the buttons to send touch events to the comma three. The new firmware touch areas are currently hardcoded to the bottom left corner for bookmark, the center for hide/show menu, and the top right corner for experimental mode toggling. The knob is used to control the LEDs to be a "lamp" light for night driving use and pressing down on it is an alternative button for the top right corner button pressing.
+Instead, we flash the keyboard's microprocessor to pretend to be a USB touchscreen digitizer, and the buttons to send touch events to the comma three. The new firmware touch areas are currently hardcoded to the bottom left corner for bookmark, the slight-left of center for hide/show menu, and the top right corner for experimental mode toggling. The knob is used to control the LEDs to be a "lamp" light for night driving use and pressing down on it is an alternative button for the top right corner button pressing.
 
 **A limitation of the blind touch approach is that I don't think this might work for the comma prime navigation UI. I don't have comma prime to develop against and that issue is being tracked in this issue: https://github.com/nelsonjchen/c3-touchkey-keyboard/issues/2 .**
 
@@ -172,7 +172,7 @@ sudo usermod -a -G plugdev $USER
    * <img width="451" alt="diagram" src="https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/acf0296f-f89b-44d5-97a0-b87a16d54020">
    * ![real world](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/80d1c5b8-61d9-4d01-8cbe-9e7f5c4405f6)
 5. While these two pins are shorted together, plug the keyboard into your computer. Keep in mind that the keyboard can only be powered or connected from a USB-A port as well. Like the C3, you also cannot directly connect it to your computer with USB-C.
-   * You might not have enough hands to do this (You couldn't afford arm lengthening surgery after all). Have a friend or family help. 
+   * You might not have enough hands to do this (You couldn't afford arm lengthening surgery after all). Have a friend or family help.
 7. Remove the shorting tool after the keyboard is plugged in.
 8. Check if the keyboard shows up in Device Manager as a `WinChipHead` or `CH552` or whatever device you've named it as in Zadig. On Linux, use `lsusb` to check for a `WinChipHead` device. On macOS, open the `System Information` app and check the USB section.
 
