@@ -54,7 +54,7 @@ void main(void) {
       0x03,       // Tip Switch and In Range
       0x7F,       // Pressure
       0x88, 0x13, // x / 10000, 5000
-      0x88, 0x13, // y / 10000, 5000
+      0xa0, 0x0f, // y / 10000, 5000
   };
 
   __xdata unsigned char touchUpReport2[] = {
