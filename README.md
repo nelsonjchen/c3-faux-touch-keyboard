@@ -108,20 +108,7 @@ https://www.aliexpress.us/w/wholesale-3m-command-picture-hanging-strips.html
 
 ### Shorting Tools
 
-You'll need to short two pins on the `CH552G` microcontroller to put it into bootloader mode. You can do this with a paperclip or a metal conductor, but it is easier to do with test hooks.
-After you flash it with this project's firmware, you won't need these tools anymore as you can boot the keyboard into bootloader mode by holding the key furthest from the knob down on powerup so these tools are a first-time only thing.
-
-#### Cheap
-
-* A paperclip or metal conductor to short the pins on some chip on the off-the-shelf keyboard for the initial flashing.
-* Steady hands or tape or whatever to mask off pins that aren't to be shorted together.
-* Or YOLO it and short the pins with a paperclip or metal conductor with no tape. Good luck!
-
-#### Throw a bit of money at AliExpress
-
-You can use these hooks to precisely clip onto the pins to and then connect the two hooks of the pins to short them together. This is useful if you have shaky hands or need to do this multiple times.
-
-https://www.aliexpress.us/item/3256805244460946.html - Get the 2pcs male option.
+Some tape can be helpful in covering up stuff you don't want to short out on the keyboard. This is optional.
 
 ## Instructions
 
@@ -135,6 +122,8 @@ You will need to use Zadig to make the device when it is in bootloader mode avai
    1. ![zadig_create_new_device](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/5fad813d-7202-4c03-9d69-1e5a01985c0e)
 4. Fill in three fields. The first field is just a description and you can fill in anything. The next two fields are very important. Fill them in with 4348 and 55e0 respectively. Press "Install Driver" and give it a few minutes to install.
    1. ![fill it in this way](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/c0280b31-646e-43bc-a01b-6269a9c0be70)
+
+If you still have issues, try other machines, Macs, Linux machines, Chromebooks, or even an Android phone.
 
 ### (Ubuntu Linux) Preparing Ubuntu Linux to allow the device to flash via a Chromium-based browser
 
@@ -163,28 +152,46 @@ sudo usermod -a -G plugdev $USER
 
 4. Log out and log back in for the group change to take effect.
 
+### Android can flash too!
+
+You can flash from an Android device too. No special instructions are needed but things are a tad less visible.
+
 ### Getting the keyboard into bootloader mode
 
-1. Disassemble the keyboard. There are 4 screws on the back of the keyboard.
-2. Unscrew them and take off the bottom. There will be an acrylic cut out. You will see the `CH552G` microcontroller.
-3. Take out the acrylic cut out so you have a bit more space
-4. Short these two pins on the `CH552G` microcontroller. Technical info: These pull USB D+ up to 3.3V from the chip's 3.3V supply.
-   * <img width="451" alt="diagram" src="https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/acf0296f-f89b-44d5-97a0-b87a16d54020">
-   * ![real world](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/80d1c5b8-61d9-4d01-8cbe-9e7f5c4405f6)
-5. While these two pins are shorted together, plug the keyboard into your computer. Keep in mind that the keyboard can only be powered or connected from a USB-A port as well. Like the C3, you also cannot directly connect it to your computer with USB-C.
-   * You might not have enough hands to do this (You couldn't afford arm lengthening surgery after all). Have a friend or family help.
-7. Remove the shorting tool after the keyboard is plugged in.
-8. Check if the keyboard shows up in Device Manager as a `WinChipHead` or `CH552` or whatever device you've named it as in Zadig. On Linux, use `lsusb` to check for a `WinChipHead` device. On macOS, open the `System Information` app and check the USB section.
+1. Prepare the cable from your computer or phone to the keyboard. Make sure that you have a female USB-A port coming *out* of your computer or phone from which you can plug in the keyboard's included male USB-A to USB-C cable. Without this, the keyboard will not power on. You should have these materials from the Bill of Materials section.
+2. Put the USB-C end of that setup next to the keyboard.
+3. Disassemble the keyboard. There are 4 screws on the back of the keyboard. Keep one of the screws handy for the next steps.
+4. Unscrew them and take off the bottom. There will be an acrylic cut out. You will see the `CH552G` microcontroller.
+5. Take out the acrylic cut out so you have a bit more space
+6. Put the keyboard on its back atop a soft surface like a mousepad or a towel.
+7. Ensure you can can see `R12` resistor pad.
+8. If you'll like, you can also tape up the other pads and components around the `R12` resistor pad to prevent shorting them out. This is optional.
+9. Using one of the 4 screws you unscrewed from the bottom, put the screw's head atop where the `R12` resistor would have been. See these photos as a reference:
+   * ![r12](https://github.com/nelsonjchen/c3-faux-touch-keyboard/assets/5363/362b41b0-11b4-4746-89f3-859dbaef301f)
+   * My pushing position
+     * ![squash](https://github.com/nelsonjchen/c3-faux-touch-keyboard/assets/5363/c450ac4d-5d99-4407-b1a0-f9539f609964)
+   * Another user's pushing. They chose to tape up the other unrelated components/pads for extra safety.
+     * ![squash2](https://github.com/nelsonjchen/c3-faux-touch-keyboard/assets/5363/cdeccc9d-ed69-4e1c-b724-e09d3901936d)
+10. Push the screw down **hard** so the keyboard isn't moving atop the soft surface.
+11. While the `R12` pads are shorted together, plug the USB-C cable into the keyboard.
+12. Remove the shorting screw after the keyboard is plugged in.
+13. Check if the keyboard shows up in Device Manager as a `WinChipHead` or `CH552` or whatever device you've named it as in Zadig. On Linux, use `lsusb` to check for a `WinChipHead` device. On macOS, open the `System Information` app and check the USB section. You can check on Android by visiting the web flasher at https://www.stephenkingston.net/CH55x-WebProgrammer/ and pressing Connect.
+
+The steps above may be tricky, and you may need to do it a few times.
 
 ### Flashing the firmware
 
 After the keyboard is in bootloader mode, you can flash the firmware.
 
-1. Download the `touch.hex` firmware to be flashed from the [GitHub Releases page](https://github.com/nelsonjchen/c3-touchkey-keyboard/releases).
-2. Visit https://www.stephenkingston.net/CH55x-WebProgrammer/ on a Chromium based browser
-3. Press Connect
-4. Select the device with "`WinChipHead`" in the name from the dropdown.
-5. Drop the `.hex` file into the web page and it'll flash.
+1. Switch to a Chromium-based browser on your computer or phone.
+2. Download the `touch.hex` firmware to be flashed from the [GitHub Releases page](https://github.com/nelsonjchen/c3-touchkey-keyboard/releases).
+3. Visit https://www.stephenkingston.net/CH55x-WebProgrammer/ . If you're on Android, you were already there.
+4. Press Connect
+5. Select the device with "Unknown device \[4348:55e0\]" or "`WinChipHead`" or similar in the name from the dropdown.
+   * If you don't see your device, try again with getting the device into bootloader mode.
+6. Once connected, you should see a message about a "Bootloader Version".
+7. Press Upload and select the `.hex` file from the file picker or drop the `.hex` file into the web page and it'll immediately start flashing.
+8. Once it's done flashing, you should notice that pressing the keys now causes a light to light up on the keyboard.
 
 ### Testing your work
 
