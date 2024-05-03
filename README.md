@@ -68,6 +68,8 @@ As there are many vendors of this keyboard, there is no steady name other than a
 
 These will usually guarantee you get a keyboard with the `CH552G` microcontroller present in the manner we need.
 
+The keyboard will also come with a 1 meter long male USB-A to male USB-C cable. 
+
 #### Optional Customizations
 
 It is a mechanical keyboard! You can replace the stock red switches with whatever you like along with the keycaps. Tactile switch replacement is popular. Keycaps/Switches are also sold on Amazon, AliExpress, and wherever you want to buy them. You might spend more on switches and keycaps than the keyboard.
