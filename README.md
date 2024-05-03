@@ -162,8 +162,8 @@ You can flash from an Android device too. No special instructions are needed but
 
 1. Prepare the cable from your computer or phone to the keyboard. Make sure that you have a female USB-A port coming *out* of your computer or phone from which you can plug in the keyboard's included male USB-A to USB-C cable. Without this, the keyboard will not power on. You should have these materials from the Bill of Materials section.
 2. Put the USB-C end of that setup next to the keyboard.
-3. Disassemble the keyboard. There are 4 screws on the back of the keyboard. Keep one of the screws handy for the next steps.
-4. Unscrew them and take off the bottom. There will be an acrylic cut out. You will see the `CH552G` microcontroller.
+3. Disassemble the bottom of the keyboard. There are 4 screws on the back of the keyboard. Keep one of the screws handy for the next steps.
+4. There will be an acrylic cut out. You will see the `CH552G` microcontroller.
 5. Take out the acrylic cut out so you have a bit more space
 6. Put the keyboard on its back atop a soft surface like a mousepad or a towel.
 7. Ensure you can can see `R12` resistor pad.
