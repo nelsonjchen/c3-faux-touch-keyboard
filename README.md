@@ -68,7 +68,7 @@ As there are many vendors of this keyboard, there is no steady name other than a
 
 These will usually guarantee you get a keyboard with the `CH552G` microcontroller present in the manner we need.
 
-The keyboard will also come with a 1 meter long male USB-A to male USB-C cable. 
+The keyboard will also come with a 1 meter long male USB-A to male USB-C cable.
 
 #### Optional Customizations
 
@@ -228,6 +228,11 @@ https://github.com/nelsonjchen/c3-faux-touch-keyboard/assets/5363/e2c270e9-285f-
 On a Chevy Bolt. Custom Keycaps and "Holy Panda" switches.
 
 ![20240423_184842](https://github.com/nelsonjchen/c3-faux-touch-keyboard/assets/5363/c4c0ce08-bf9b-47dd-9500-e3a512cf3f74)
+
+On a Chevy Volt.
+
+![volt](https://github.com/nelsonjchen/c3-faux-touch-keyboard/assets/5363/9f7ee5e1-832c-48cb-8fa3-bd59c38b3068)
+
 
 ### Installation Diagram
 
