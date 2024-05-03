@@ -270,6 +270,7 @@ This firmware is based on the work of the following projects:
 
 * https://github.com/biemster/3keys_1knob/ - Showed me the possibility of flashing these keyboards and some implementation reference.
 * https://github.com/wagiminator/MCU-Templates - the basis for `3keys_1knob` and a good reference for clean CH55X code.
+* https://github.com/eccherda/ch552g_mini_keyboard/blob/master/readme.md#setting-up-the-keyboard-in-bootloader-mode - Bootloader mode instructions about the R12 resistor pad come from there
 
 ## License
 
