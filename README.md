@@ -72,7 +72,7 @@ The keyboard will also come with a 1 meter long male USB-A to male USB-C cable.
 
 #### Optional Customizations
 
-It is a mechanical keyboard! You can replace the stock red switches with whatever you like along with the keycaps. Tactile switch replacement is popular. Keycaps/Switches are also sold on Amazon, AliExpress, and wherever you want to buy them. You might spend more on switches and keycaps than the keyboard.
+It is a mechanical keyboard! You can replace the stock red switches with whatever you like along with the keycaps. Tactile or clickly switch replacement is popular. Keycaps/Switches are also sold on Amazon, AliExpress, and wherever you want to buy them. You might spend more on switches and keycaps than the keyboard.
 
 ### Male USB-C to Female USB-A cable
 
