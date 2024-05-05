@@ -25,13 +25,19 @@ jobs:
       - name: Run make hex
         run: make hex
 
-      - name: Store artifacts
+      - name: Store Hex artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: touchkey-firmware
+          name: touchkey-firmware-hex
+          path: |
+            touch.hex
+
+      - name: Store Bin artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: touchkey-firmware-bin
           path: |
             touch.bin
-            touch.hex
 
       - name: Release
         uses: softprops/action-gh-release@v2
