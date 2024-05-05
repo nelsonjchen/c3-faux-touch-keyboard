@@ -114,7 +114,7 @@ void main(void) {
         MT_touchDown(touchCount, 1, 0x03fa, 0x01f4);
       } else {
         if (lampLight) {
-          NEO_writeColor(0, 15, 5, 0);
+          NEO_writeColor(0, 5, 1, 0);
         } else {
           NEO_clearPixel(0);
         }
@@ -125,7 +125,7 @@ void main(void) {
         MT_touchDown(touchCount, 2, 0x1388, 0x0fa0);
       } else {
         if (lampLight) {
-          NEO_writeColor(1, 15, 5, 0);
+          NEO_writeColor(1, 5, 1, 0);
         } else {
           NEO_clearPixel(1);
         }
@@ -136,7 +136,7 @@ void main(void) {
         MT_touchDown(touchCount, 3, 0x1fa5, 0x24b6);
       } else {
         if (lampLight) {
-          NEO_writeColor(2, 15, 5, 0);
+          NEO_writeColor(2, 5, 1, 0);
         } else {
           NEO_clearPixel(2);
         }
