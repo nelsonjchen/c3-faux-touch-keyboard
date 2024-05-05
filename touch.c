@@ -4,7 +4,7 @@
 #include "src/gpio.h"   // GPIO functions
 #include "src/neo.h"    // NeoPixel functions
 #include "src/system.h" // system functions
-#include "usb_hid.h"
+#include "usb_multitouch.h"
 
 // Prototypes for used interrupts
 void USB_interrupt(void);
@@ -28,60 +28,9 @@ void main(void) {
 
   // Setup
   CLK_config(); // configure system clock
-  HID_init();
+  MT_init();
   DLY_ms(10);       // wait for clock to settle
   PIN_low(PIN_LED); // light up LED - blocking activated
-  __xdata unsigned char touchDownReport1[] = {
-      0x01,       // Contact Count
-      0x01,       // Contact Identifier
-      0x03,       // Tip Switch and In Range
-      0x7F,       // Pressure
-      0xfa, 0x03, // x / 10000
-      0xf4, 0x01, // y / 10000
-  };
-
-  __xdata unsigned char touchUpReport1[] = {
-      0x00,       // Contact Count
-      0x01,       // Contact Identifier
-      0x00,       // Not in Range
-      0x00,       // No pressure
-      0x00, 0x00, // Disregarded
-      0x00, 0x00, // Disregarded
-  };
-  __xdata unsigned char touchDownReport2[] = {
-      0x01,       // Contact Count
-      0x02,       // Contact Identifier
-      0x03,       // Tip Switch and In Range
-      0x7F,       // Pressure
-      0x88, 0x13, // x / 10000, 5000
-      0xa0, 0x0f, // y / 10000, 5000
-  };
-
-  __xdata unsigned char touchUpReport2[] = {
-      0x00,       // Contact Count
-      0x02,       // Contact Identifier
-      0x00,       // Not in Range
-      0x00,       // No pressure
-      0x00, 0x00, // Disregarded
-      0x00, 0x00, // Disregarded
-  };
-  __xdata unsigned char touchDownReport3[] = {
-      0x01,       // Contact Count
-      0x03,       // Contact Identifier
-      0x03,       // Tip Switch and In Range
-      0x7F,       // Pressure
-      0xf3, 0x20, // x / 10000
-      0x39, 0x24, // y / 10000
-  };
-
-  __xdata unsigned char touchUpReport3[] = {
-      0x00,       // Contact Count
-      0x03,       // Contact Identifier
-      0x00,       // Not in Range
-      0x00,       // No pressure
-      0x00, 0x00, // Disregarded
-      0x00, 0x00, // Disregarded
-  };
 
   __xdata unsigned int touchCount = 0;
   __xdata int lampLight = 0;
@@ -104,7 +53,6 @@ void main(void) {
     PIN_toggle(PIN_LED); // toggle LED and function state
 
     DLY_ms(10); // debounce
-    // Touch down report
 
     // Check if PIN_KEY1 is pressed
     if (!PIN_read(PIN_KEY1)) { // key 1 pressed?
@@ -160,47 +108,39 @@ void main(void) {
       keyDirty = 1;
     }
 
-    // Change the first byte of each report to the number of fingers
-    touchDownReport1[0] = touchCount;
-    touchUpReport1[0] = touchCount;
-    touchDownReport2[0] = touchCount;
-    touchUpReport2[0] = touchCount;
-    touchDownReport3[0] = touchCount;
-    touchUpReport3[0] = touchCount;
-
     if (keyDirty) {
       if (key1Pressed) {
         NEO_writeColor(0, 25, 19, 0);
-        HID_sendReport(touchDownReport1, sizeof(touchDownReport1));
+        MT_touchDown(touchCount, 1, 0x03fa, 0x01f4);
       } else {
         if (lampLight) {
-          NEO_writeColor(0, 15, 5, 0);
+          NEO_writeColor(0, 5, 1, 0);
         } else {
           NEO_clearPixel(0);
         }
-        HID_sendReport(touchUpReport1, sizeof(touchUpReport1));
+        MT_touchUp(touchCount, 1);
       }
       if (key2Pressed) {
         NEO_writeColor(1, 25, 19, 0);
-        HID_sendReport(touchDownReport2, sizeof(touchDownReport2));
+        MT_touchDown(touchCount, 2, 0x1388, 0x0fa0);
       } else {
         if (lampLight) {
-          NEO_writeColor(1, 15, 5, 0);
+          NEO_writeColor(1, 5, 1, 0);
         } else {
           NEO_clearPixel(1);
         }
-        HID_sendReport(touchUpReport2, sizeof(touchUpReport2));
+        MT_touchUp(touchCount, 2);
       }
       if (key3Pressed) {
         NEO_writeColor(2, 25, 19, 0);
-        HID_sendReport(touchDownReport3, sizeof(touchDownReport3));
+        MT_touchDown(touchCount, 3, 0x1fa5, 0x24b6);
       } else {
         if (lampLight) {
-          NEO_writeColor(2, 15, 5, 0);
+          NEO_writeColor(2, 5, 1, 0);
         } else {
           NEO_clearPixel(2);
         }
-        HID_sendReport(touchUpReport3, sizeof(touchUpReport3));
+        MT_touchUp(touchCount, 3);
       }
     }
     NEO_update(); // update NeoPixels
