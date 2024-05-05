@@ -70,8 +70,8 @@ void main(void) {
       0x03,       // Contact Identifier
       0x03,       // Tip Switch and In Range
       0x7F,       // Pressure
-      0xf3, 0x20, // x / 10000
-      0x39, 0x24, // y / 10000
+      0xa5, 0x1f, // x / 10000
+      0xb6, 0x24, // y / 10000
   };
 
   __xdata unsigned char touchUpReport3[] = {
