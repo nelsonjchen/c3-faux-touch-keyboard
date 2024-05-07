@@ -4,7 +4,7 @@
 
 ![touchkey keyboard demo](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/d9617916-2442-4287-b430-709dad173da8)
 
-These are instructions and firmware for a relatively cheap off-the-shelf macro keyboard off AliExpress/Amazon (that has many copies/clones) to control a comma three running openpilot from an accessible and comfortable driver's position.
+These are instructions and firmware for a relatively cheap off-the-shelf macro keyboard off AliExpress/Amazon (that has many copies/clones) to control a comma three running [openpilot](https://github.com/commaai/openpilot) from an accessible and comfortable driver's position.
 
 No more this and reaching out when you want to bookmark a segment or toggle experimental mode:
 
