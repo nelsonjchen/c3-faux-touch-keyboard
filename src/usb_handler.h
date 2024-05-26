@@ -28,6 +28,7 @@ void HID_EP1_IN(void);
 // ===================================================================================
 // Custom USB handler functions
 #define USB_INIT_endpoints  HID_EP_init       // custom USB EP init handler
+#define USB_CLASS_SETUP_handler MT_control     // handle class setup requests
 
 // Endpoint callback functions
 #define EP0_SETUP_callback  USB_EP0_SETUP
