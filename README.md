@@ -10,7 +10,7 @@ No more this and reaching out when you want to bookmark a segment or toggle expe
 
 ![touch](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/d6085e3b-109d-4347-a9d0-cbc847b3c234)
 
-The macro keyboard we will be using look like this and come in this configuration:
+The macro keyboard we will be using looks like this and come in this configuration:
 
 ![Picture of keyboard](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/bf44187f-1143-46d3-bb61-b068b7270087)
 
