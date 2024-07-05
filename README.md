@@ -18,7 +18,7 @@ The default configuration software and firmware on these kinds of keyboards is n
 
 Instead, we flash the keyboard's microprocessor to pretend to be a USB touchscreen digitizer, and the buttons to send touch events to the comma three. The new firmware touch areas are currently hardcoded to the bottom left corner for bookmark, the slight-left of center for hide/show menu, and the top right corner for experimental mode toggling. The knob is used to control the LEDs to be a "lamp" light for night driving use and pressing down on it is an alternative button for the top right corner button pressing.
 
-**A limitation of the blind touch approach is that I don't think this might work for the comma prime navigation UI. I don't have comma prime to develop against and that issue is being tracked in this issue: https://github.com/nelsonjchen/c3-touchkey-keyboard/issues/2 .**
+On some forks such as [FrogPilot](https://github.com/FrogAi/FrogPilot), it can also be used to press optional on-screen widgets such as distance adjustment which happens to also be in the bottom-left. This useful for vehicles lacking equivalent physical buttons such as Non-ACC Bolts or Volts. 
 
 These keyboards are built around the [`CH552G`][ch552info] microcontroller. By shorting two pins together on initial power, the keyboard can be put into bootloader mode, and the new touchscreen-emulation firmware can then be flashed over USB.
 
