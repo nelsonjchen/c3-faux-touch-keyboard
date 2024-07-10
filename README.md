@@ -14,19 +14,19 @@ The macro keyboard we will be using looks like this and comes in this configurat
 
 ![Picture of keyboard](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/bf44187f-1143-46d3-bb61-b068b7270087)
 
-The default configuration software and firmware on these kinds of keyboards is notoriously bad, sketchy in origin, and may not be trustworthy. Most importantly, it won't work for our use case where we need to send touchscreen input. So, don't bother downloading and don't install the configuration software. We will be throwing it all out.
+The default configuration software and firmware on these kinds of keyboards is notoriously bad, sketchy in origin, and may not be trustworthy. Most importantly, it won't work for our use case where we need to send touchscreen input. So, don't bother downloading and don't install the configuration software. We will be throwing that all out.
 
-Instead, we flash the keyboard's microprocessor to pretend to be a USB touchscreen digitizer, and the buttons to send touch events to the comma three. The new firmware touch areas are currently hardcoded to the bottom left corner for bookmark, the slight-left of center for hide/show menu, and the top right corner for experimental mode toggling. The knob is used to control the LEDs to be a "lamp" light for night driving use and pressing down on it is an alternative button for the top right corner button pressing.
+Instead, we are flashing the keyboard's microprocessor to pretend to be a USB touchscreen digitizer, and the buttons to send touch events to the comma three. The new firmware touch areas are currently hardcoded to the bottom left corner for bookmark, the slight-left of center for hide/show menu, and the top right corner for experimental mode toggling. The knob is used to control the LEDs to be a "lamp" light for night driving use and pressing down on it is an alternative button for the top right corner button pressing.
 
-On some forks such as [FrogPilot](https://github.com/FrogAi/FrogPilot), it can also be used to press optional on-screen widgets such as distance adjustment which happens to also be in the bottom-left. This useful for vehicles lacking equivalent physical buttons such as Non-ACC Bolts or Volts. 
+On some forks such as [FrogPilot](https://github.com/FrogAi/FrogPilot), the keyboard can also be used to press optional on-screen widgets such as distance adjustment which happens to also be in the bottom-left. This useful for vehicles lacking equivalent physical buttons such as Non-ACC Bolts or Volts. 
 
-These keyboards are built around the [`CH552G`][ch552info] microcontroller. By shorting two pins together on initial power, the keyboard can be put into bootloader mode, and the new touchscreen-emulation firmware can then be flashed over USB.
+These keyboards are built around the [`CH552G`][ch552info] microcontroller. By shorting two pads together on initial power, the keyboard can be put into bootloader mode, and the new touchscreen-emulation firmware can then be flashed over USB. It is very easy to take apart the keyboard and to short these two pads.
 
-Restoring the original vendor firmware is not possible without  the original vendor firmware which I haven't been able to find yet. That said, somewhat similar functional firmware to the original functionality without the sketchy vendor software can be found here if you want to "reverse" the process and restore the keyboard to something like its original functionality:
+Restoring the original vendor firmware is not possible without the original manufacturer's firmware which I haven't been able to find yet. That said, somewhat similar functional firmware to the original functionality without the sketchy vendor software can be found here if you want to "reverse" the process and restore the keyboard to something like its original functionality as a macro keyboard:
 
 https://github.com/biemster/3keys_1knob
 
-A more hardcore keyboard framework for this chip exists here as well:
+A much more hardcore and customizable keyboard framework for this chip exists here as well:
 
 https://github.com/semickolon/fak
 
