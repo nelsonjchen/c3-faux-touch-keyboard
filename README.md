@@ -22,13 +22,11 @@ On some forks such as [FrogPilot](https://github.com/FrogAi/FrogPilot), the keyb
 
 These keyboards are built around the [`CH552G`][ch552info] microcontroller. By shorting two pads together on initial power, the keyboard can be put into bootloader mode, and the new touchscreen-emulation firmware can then be flashed over USB. It is very easy to take apart the keyboard and to short these two pads.
 
-Restoring the original vendor firmware is not possible without the original manufacturer's firmware which I haven't been able to find yet. That said, somewhat similar functional firmware to the original functionality without the sketchy vendor software can be found here if you want to "reverse" the process and restore the keyboard to something like its original functionality as a macro keyboard:
+Restoring the original vendor firmware is not possible without the original manufacturer's firmware which I haven't been able to find yet. That said, somewhat similar functional firmwares to the original functionality without the sketchy vendor software can be found here if you want to "reverse" the process and restore the keyboard to something like its original functionality as a macro keyboard:
 
-https://github.com/biemster/3keys_1knob
-
-A much more hardcore and customizable keyboard framework for this chip exists here as well:
-
-https://github.com/semickolon/fak
+* https://github.com/biemster/3keys_1knob
+* https://github.com/eccherda/ch552g_mini_keyboard/
+* https://github.com/semickolon/fak (This one is pretty hardcore!)
 
 ## Bill of Materials
 
