@@ -18,7 +18,7 @@ The default configuration software and firmware on these kinds of keyboards is n
 
 Instead, we are flashing the keyboard's microprocessor to pretend to be a USB touchscreen digitizer, and the buttons to send touch events to the comma three. The new firmware touch areas are currently hardcoded to the bottom left corner for bookmark, the slight-left of center for hide/show menu, and the top right corner for experimental mode toggling. The knob is used to control the LEDs to be a "lamp" light for night driving use and pressing down on it is an alternative button for the top right corner button pressing.
 
-On some forks such as [FrogPilot](https://github.com/FrogAi/FrogPilot), the keyboard can also be used to press optional on-screen widgets such as distance adjustment which happens to also be in the bottom-left. This useful for vehicles lacking equivalent physical buttons such as Non-ACC Bolts or Volts. 
+On some forks such as [FrogPilot](https://github.com/FrogAi/FrogPilot), the keyboard can also be used to press optional on-screen widgets such as distance adjustment which happens to also be in the bottom-left. This useful for vehicles lacking equivalent physical buttons such as Non-ACC Bolts or Volts. Traffic Mode in FrogPilot can also be activated by a long touch and as this keyboard can faithfully translate touch down and touch up from button presses down and button presses up, the keyboard can do that too.
 
 These keyboards are built around the [`CH552G`][ch552info] microcontroller. By shorting two pads together on initial power, the keyboard can be put into bootloader mode, and the new touchscreen-emulation firmware can then be flashed over USB. It is very easy to take apart the keyboard and to short these two pads.
 
