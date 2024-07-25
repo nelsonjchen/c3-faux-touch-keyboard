@@ -256,6 +256,11 @@ graph TD
 
 If you ever need to update the firmware with the new firmware, the old firmware can be put into bootloader mode by holding the key furthest away from the knob while plugging it into the computer. All the LEDs should light up in full white when this is done. The new firmware can then be flashed without shorting the pins using the web flasher.
 
+## Known Issues
+
+* There is iffy support in Windows. Testing the keyboard on Windows may yield weird behaviors but as it is not the target of this project, those bugs are left as-is. Bugs may include touch-down and touch-up emulation. It is best to test on a Linux-based device.
+* Do not disconnect the keyboard during normal operation. The C3 itself may crash or kernel panic. It's unknown what causes this but touchscreen hot-removal in the C3 OS and environment might not be as well tested. As this is not a normal thing to do, this is left as-is.
+
 ## Development
 
 See the Makefile and try to get `make flash` going. You'll need sdcc, Python with pyusb, and build tools.
