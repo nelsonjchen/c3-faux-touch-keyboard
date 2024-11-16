@@ -156,6 +156,10 @@ sudo usermod -a -G plugdev $USER
 
 You can flash from an Android device too. No special instructions are needed but things are a tad less visible.
 
+### Macs can flash
+
+No special instructions are needed. macOS readily makes USB devices available to Chromium browsers with no permissions required.
+
 ### Getting the keyboard into bootloader mode
 
 1. Prepare the cable from your computer or phone to the keyboard. Make sure that you have a female USB-A port coming *out* of your computer or phone from which you can plug in the keyboard's included male USB-A to USB-C cable. Without this, the keyboard will not power on. You should have these materials from the Bill of Materials section.
