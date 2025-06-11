@@ -28,6 +28,11 @@ Restoring the original vendor firmware is not possible without the original manu
 * https://github.com/eccherda/ch552g_mini_keyboard/
 * https://github.com/semickolon/fak (This one is pretty hardcore!)
 
+## User Groups
+
+* [Frogpilot Discord](https://github.com/FrogAi/FrogPilot?tab=readme-ov-file#discord)
+  * ["macropad enjoyers" thread](https://discord.com/channels/1137853399715549214/1235731637573259284)
+
 ## Bill of Materials
 
 Cost: Expect the cost to be about $3-20 for the keyboard, $2-10 for the male USB-C to female USB-A adapter, and an optional $6-10 for nicities like 90 degree USB-C angle adapters for a cleaner look. You may also need a USB-C extension cable. The rest of the materials you probably have lying around. The cost can be $14 to $40 depending on how long you want to wait for the materials to arrive from AliExpress, if you're in a hurry and want to buy from Amazon, or how clean you want the install to look.
