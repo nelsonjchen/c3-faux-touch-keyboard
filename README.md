@@ -2,6 +2,8 @@
 
 *Long arms for those of us with short arms from birth or those who can't afford arm extension surgery!*
 
+aka. macropad or comma macropad (but not from comma!)
+
 ![touchkey keyboard demo](https://github.com/nelsonjchen/c3-touchkey-keyboard/assets/5363/d9617916-2442-4287-b430-709dad173da8)
 
 These are instructions and firmware for a relatively cheap off-the-shelf macro keyboard off AliExpress/Amazon (that has many copies/clones) to control a comma three running [openpilot](https://github.com/commaai/openpilot) from an accessible and comfortable driver's position.
