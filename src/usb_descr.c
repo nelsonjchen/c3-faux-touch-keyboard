@@ -144,6 +144,13 @@ __code uint8_t ReportDescr[] = {
     0x95, 0x01, //     REPORT_COUNT (1)
     0x81, 0x02, //     INPUT (Data,Var,Abs)
 
+    // declare Touch Major (Width)
+    0x09, 0x48, //     USAGE (Width)
+    0x25, 0x7f, //     LOGICAL_MAXIMUM (127)
+    0x75, 0x08, //     REPORT_SIZE (8)
+    0x95, 0x01, //     REPORT_COUNT (1)
+    0x81, 0x02, //     INPUT (Data,Var,Abs)
+
     // define absolute X and Y coordinates of 16 bit each (percent values
     // multiplied with 100)
     // define absolute X and Y coordinates of 16 bit each
