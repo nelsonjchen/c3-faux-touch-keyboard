@@ -133,7 +133,7 @@ void main(void) {
       }
       if (key3Pressed) {
         NEO_writeColor(2, 25, 19, 0);
-        MT_touchDown(touchCount, 3, 875, 2030);
+        MT_touchDown(touchCount, 3, 907, 1983);
       } else {
         if (lampLight) {
           NEO_writeColor(2, 5, 1, 0);
