@@ -97,21 +97,21 @@ void main(void) {
 
     // Check if PIN_ENC_A, PIN_ENC_B is pressed or not and update knobDirection
     if (!PIN_read(PIN_ENC_A)) {
-      if(PIN_read(PIN_ENC_B)) {
-        lampLight = 1;  // clockwise?
+      if (PIN_read(PIN_ENC_B)) {
+        lampLight = 1; // clockwise?
+      } else {
+        lampLight = 0; // counter-clockwise?
       }
-      else {
-        lampLight = 0;  // counter-clockwise?
-      }
-      DLY_ms(10);                                    // debounce
-      while(!PIN_read(PIN_ENC_A));                   // wait until next detent
+      DLY_ms(10); // debounce
+      while (!PIN_read(PIN_ENC_A))
+        ; // wait until next detent
       keyDirty = 1;
     }
 
     if (keyDirty) {
       if (key1Pressed) {
         NEO_writeColor(0, 25, 19, 0);
-        MT_touchDown(touchCount, 1, 0x03fa, 0x01f4);
+        MT_touchDown(touchCount, 1, 110, 108);
       } else {
         if (lampLight) {
           NEO_writeColor(0, 5, 1, 0);
@@ -122,7 +122,7 @@ void main(void) {
       }
       if (key2Pressed) {
         NEO_writeColor(1, 25, 19, 0);
-        MT_touchDown(touchCount, 2, 0x1388, 0x0fa0);
+        MT_touchDown(touchCount, 2, 540, 864);
       } else {
         if (lampLight) {
           NEO_writeColor(1, 5, 1, 0);
@@ -133,7 +133,7 @@ void main(void) {
       }
       if (key3Pressed) {
         NEO_writeColor(2, 25, 19, 0);
-        MT_touchDown(touchCount, 3, 0x1fa5, 0x24b6);
+        MT_touchDown(touchCount, 3, 875, 2030);
       } else {
         if (lampLight) {
           NEO_writeColor(2, 5, 1, 0);

@@ -146,16 +146,26 @@ __code uint8_t ReportDescr[] = {
 
     // define absolute X and Y coordinates of 16 bit each (percent values
     // multiplied with 100)
+    // define absolute X and Y coordinates of 16 bit each
     0x05, 0x01,       //     USAGE_PAGE (Generic Desktop)
     0x09, 0x30,       //     Usage (X)
-    0x09, 0x31,       //     Usage (Y)
     0x16, 0x00, 0x00, //     Logical Minimum (0)
-    0x26, 0x10, 0x27, //     Logical Maximum (10000)
+    0x26, 0x38, 0x04, //     Logical Maximum (1080)
     0x36, 0x00, 0x00, //     Physical Minimum (0)
-    0x46, 0x10, 0x27, //     Physical Maximum (10000)
+    0x46, 0x38, 0x04, //     Physical Maximum (1080)
     0x66, 0x00, 0x00, //     UNIT (None)
     0x75, 0x10,       //     Report Size (16),
-    0x95, 0x02,       //     Report Count (2),
+    0x95, 0x01,       //     Report Count (1),
+    0x81, 0x02,       //     Input (Data,Var,Abs)
+
+    0x09, 0x31,       //     Usage (Y)
+    0x16, 0x00, 0x00, //     Logical Minimum (0)
+    0x26, 0x70, 0x08, //     Logical Maximum (2160)
+    0x36, 0x00, 0x00, //     Physical Minimum (0)
+    0x46, 0x70, 0x08, //     Physical Maximum (2160)
+    0x66, 0x00, 0x00, //     UNIT (None)
+    0x75, 0x10,       //     Report Size (16),
+    0x95, 0x01,       //     Report Count (1),
     0x81, 0x02,       //     Input (Data,Var,Abs)
     0xC0,             //   END_COLLECTION
     // define the maximum amount of fingers that the device supports
