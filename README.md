@@ -278,6 +278,19 @@ See the Makefile and try to get `make flash` going. You'll need sdcc, Python wit
 
 `sudo libinput debug-events` is your friend. You may need to `apt update -y` and `apt install -y libinput-tools` to get it.
 
+To find the raw hardware resolution of the touchscreen, use `evtest`:
+
+```bash
+sudo evtest /dev/input/eventX
+```
+
+Look for the `ABS_MT_POSITION_X` and `ABS_MT_POSITION_Y` entries. The `Max` value indicates the resolution limit.
+
+**Reference: comma three (Samsung Touchscreen) Specs:**
+* **Resolution:** 1080 x 2160
+* **Multitouch:** 10 points
+* **Pressure Levels:** 255
+
 ## Inspirations and References
 
 This firmware is based on the work of the following projects:
