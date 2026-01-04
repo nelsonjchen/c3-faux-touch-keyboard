@@ -291,6 +291,14 @@ Look for the `ABS_MT_POSITION_X` and `ABS_MT_POSITION_Y` entries. The `Max` valu
 * **Multitouch:** 10 points
 * **Pressure Levels:** 255
 
+> [!NOTE]
+> **Orientation Quirk:** The comma three's touchscreen is natively **Portrait (1080x2160)**, but the device operates in **Landscape** mode.
+> This means the coordinates reported by `evtest` (hardware raw) may not match the visual screen coordinates directly.
+> * **X-axis** in `evtest` might correspond to the visual Y-axis.
+> * **Y-axis** in `evtest` might correspond to the visual X-axis.
+> * Depending on rotation (90° or 270°), one of the axes will likely be inverted.
+
+
 ## Inspirations and References
 
 This firmware is based on the work of the following projects:
