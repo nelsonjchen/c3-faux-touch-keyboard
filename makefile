@@ -32,7 +32,7 @@ ifeq ($(shell uname -s),Darwin)
     endif
 endif
 PACK_HEX   = packihx
-ISPTOOL   ?= python3 $(TOOLS)/chprog.py $(TARGET).bin
+ISPTOOL   ?= uv run $(TOOLS)/chprog.py $(TARGET).bin
 
 # Compiler Flags
 CFLAGS  = -mmcs51 --model-small --no-xinit-opt -DF_CPU=$(FREQ_SYS) -I$(INCLUDE) -I.

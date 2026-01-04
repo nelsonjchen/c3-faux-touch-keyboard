@@ -274,7 +274,7 @@ If you ever need to update the firmware with the new firmware, the old firmware 
 
 ## Development
 
-See the Makefile and try to get `make flash` going. You'll need sdcc, Python with pyusb, and build tools.
+See the Makefile and try to get `make flash` going. You'll need `sdcc`, `uv` (for Python dependency management), and build tools.
 
 `sudo libinput debug-events` is your friend. You may need to `apt update -y` and `apt install -y libinput-tools` to get it.
 

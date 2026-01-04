@@ -1,4 +1,7 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = ["pyusb"]
+# ///
 # ===================================================================================
 # Project:   chprog - Programming Tool for CH55x Microcontrollers
 # Version:   v1.2
@@ -37,11 +40,25 @@
 # Then install the libusb-win32 driver.
 #
 # Connect the CH55x via USB to your PC. The CH55x must be in bootloader mode!
-# Run "python3 chprog.py firmware.bin".
-
+# Run "uv run chprog.py firmware.bin".
 
 import usb.core
 import usb.util
+import usb.backend.libusb1
+import sys
+import os
+
+# Explicit backend setup for macOS Homebrew
+BACKEND = None
+if sys.platform == 'darwin':
+    lib_paths = [
+        '/opt/homebrew/lib/libusb-1.0.dylib',
+        '/usr/local/lib/libusb-1.0.dylib'
+    ]
+    for lib in lib_paths:
+        if os.path.exists(lib):
+            BACKEND = usb.backend.libusb1.get_backend(find_library=lambda x: lib)
+            break
 import sys
 
 
@@ -82,7 +99,7 @@ def _main():
 class Programmer:
     def __init__(self):
         # Find device
-        dev = usb.core.find(idVendor = CH_USB_VENDOR_ID, idProduct = CH_USB_PRODUCT_ID)
+        dev = usb.core.find(idVendor = CH_USB_VENDOR_ID, idProduct = CH_USB_PRODUCT_ID, backend=BACKEND)
         if dev is None:
             raise Exception('CH55x not found. Check if device is in BOOT mode')
 
