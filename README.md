@@ -7,7 +7,7 @@ aka. macropad or comma macropad (but not from comma!)
 > [!WARNING]
 > **Compatibility Notice:** This keyboard only works with **openpilot 0.10.1 and below** that use the Qt-based UI. 
 > 
-> openpilot **0.10.2 and newer** (released November 2025) migrated to a raylib-based UI that is hardcoded to ignore external USB touchscreens. If you're running a newer version of openpilot, this keyboard will not function.
+> openpilot **0.10.2 and newer** (released November 2025) migrated to a raylib-based UI that is hardcoded to [only consider the internal touchscreen](https://github.com/commaai/openpilot/blob/7f8dbf24e72a37cc1b587d7390c6b6274ef581e7/system/hardware/hardwared.py#L64-L96) and will ignore external touchscreens. If you're running a newer version of openpilot, this keyboard will not function.
 >
 > If you're interested in a spritual successor or alternative and aren't tied to comma openpilot, check out [OpenCANDeck](https://community.sunnypilot.ai/t/wip-opencandeck-extra-buttons-dials-for-physical-controls-challenged-interiors/441/7) on the sunnypilot forum.
 
